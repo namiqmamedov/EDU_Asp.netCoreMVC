@@ -1,5 +1,4 @@
 ﻿using EduHome.DAL;
-using EduHome.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace EduHome.Services
 {
-    public class LayoutServices : ILayoutServices
+    public class LayoutService
     {
         private readonly AppDbContext _context;
-        public LayoutServices(AppDbContext context)
+        public LayoutService(AppDbContext context)
         {
             _context = context;
         

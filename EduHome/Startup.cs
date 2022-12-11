@@ -1,5 +1,5 @@
 using EduHome.DAL;
-using EduHome.Interfaces;
+using EduHome.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,10 +34,9 @@ namespace EduHome
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddScoped<LayoutService>();
 
-            services.AddTransient<ILayoutServices, LayoutServices>();
-
-            services.AddHttpContextAccessor();
+            //services.AddHttpContextAccessor();
 
         }
 
