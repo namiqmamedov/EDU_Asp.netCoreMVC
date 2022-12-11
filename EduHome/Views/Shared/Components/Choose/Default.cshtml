@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Choose>
+
+
+@foreach (Choose choose in Model)
+{
+    <section class="choose-area pb-85 pt-77" style="background-image: url(@choose.BackgroundImg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-left-4 col-sm-8 col-md-offset-left-4">
+                    <div class="choose-content text-left">
+                        <h2>@choose.Title</h2>
+                        <p>@choose.MainDescription</p>
+                        <p class="choose-option">@choose.SubDescription</p>
+                        <a class="default-btn" href="course-details.html">view courses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

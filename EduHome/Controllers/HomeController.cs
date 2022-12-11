@@ -19,12 +19,15 @@ namespace EduHome.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //List<Setting> settings = _context.Settings.ToList();
-            //ViewBag.Settings = settings;
+          
 
             HomeVM homeVM = new HomeVM
             {
                 Sliders = await _context.Sliders.Where(s => s.IsDeleted == false).ToListAsync(),
+                Chooses = await _context.Chooses.Where(c => c.IsDeleted == false).ToListAsync(),
+                Testimonials = await _context.Testimonials.Where(t => t.IsDeleted == false).ToListAsync(),
+                NoticeLefts = await _context.NoticeLefts.Where(s => s.IsDeleted == false).ToListAsync(),
+                NoticeRights = await _context.NoticeRights.Where(s => s.IsDeleted == false).ToListAsync(),
             };
 
             return View(homeVM);

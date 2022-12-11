@@ -1188,7 +1188,24 @@ textarea {
 .notice-right-wrapper h3, .notice-left-wrapper h3{margin-bottom: 33px}
 .notice-right-wrapper {margin-right: 27px}
 .single-notice-left, .single-notice-right{border-bottom: 1px solid #E7E7E7}
-.col-md-6 .single-notice-left:last-child, .col-md-6 .single-notice-left:nth-child(3), .col-md-6 .single-notice-left:nth-child(6), .col-md-6 .single-notice-right:last-child{border-bottom: none}
+.single-notice-right {
+    padding: 17px 0;
+}
+.single-notice-left {
+   padding-bottom: 18px;
+
+}
+    /*.single-notice-left:after {
+    position: absolute;
+    content: '';
+    border-bottom: 1px solid #d2d7da;
+    width: 70%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    left: 50%;
+}*/
+
+    .col-md-6 .single-notice-left:last-child, .col-md-6 .single-notice-left:nth-child(3), .col-md-6 .single-notice-left:nth-child(6), .col-md-6 .single-notice-right:last-child{border-bottom: none}
 .single-notice-left h4{
     font-family: 'Open Sans', sans-serif;
     font-size: 700;

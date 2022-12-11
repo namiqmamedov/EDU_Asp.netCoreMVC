@@ -1,4 +1,4 @@
-﻿@model Dictionary<string,string>
+﻿@model Dictionary<string, string>
 
 <footer class="footer-area">
     <div class="main-footer">
@@ -12,10 +12,11 @@
                         <p></p>
                         <div class="footer-social">
                             <ul>
-                                <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
-                                <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+
+                                <li><a href="@Model.FirstOrDefault(s => s.Key == "FacebookURL").Value"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="@Model.FirstOrDefault(s => s.Key == "PinterestURL").Value"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                <li><a href="@Model.FirstOrDefault(s => s.Key == "VimeoURL").Value"><i class="zmdi zmdi-vimeo"></i></a></li>
+                                <li><a href="@Model.FirstOrDefault(s => s.Key == "TwitterURL").Value"><i class="zmdi zmdi-twitter"></i></a></li>
                             </ul>
                         </div>
                     </div>

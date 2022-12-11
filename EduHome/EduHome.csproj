@@ -17,6 +17,16 @@
     <Compile Remove="Migrations\20221211010440_CreatedSettingsTable.Designer.cs" />
     <Compile Remove="Migrations\20221211012543_test.cs" />
     <Compile Remove="Migrations\20221211012543_test.Designer.cs" />
+    <Compile Remove="Migrations\20221211141933_CreatedNoticesTable.cs" />
+    <Compile Remove="Migrations\20221211141933_CreatedNoticesTable.Designer.cs" />
+    <Compile Remove="Migrations\20221211142020_CreatedNoticesTable.cs" />
+    <Compile Remove="Migrations\20221211142020_CreatedNoticesTable.Designer.cs" />
+    <Compile Remove="Migrations\20221211154120_test.cs" />
+    <Compile Remove="Migrations\20221211154120_test.Designer.cs" />
+    <Compile Remove="Migrations\20221211155217_CreatedNoticesTable.cs" />
+    <Compile Remove="Migrations\20221211155217_CreatedNoticesTable.Designer.cs" />
+    <Compile Remove="Migrations\20221211183613_CreatedTestimonialsTable.cs" />
+    <Compile Remove="Migrations\20221211183613_CreatedTestimonialsTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

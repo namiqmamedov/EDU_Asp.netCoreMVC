@@ -1,0 +1,22 @@
+﻿@model IEnumerable<NoticeLeft>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-left">
+                    @foreach (NoticeLeft notice in Model)
+                    {
+                        <h3>@notice.Title</h3>
+                        <div class="single-notice-left">
+                            <h4>@notice.Date.ToString("d, MMMe yyyy")</h4>
+                            <p>@notice.Description</p>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+
+           

@@ -17,6 +17,10 @@ namespace EduHome.DAL
 
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<NoticeLeft> NoticeLefts { get; set; }
+        public DbSet<NoticeRight> NoticeRights { get; set; }
+        public DbSet<Choose> Chooses { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
 
     }
 }

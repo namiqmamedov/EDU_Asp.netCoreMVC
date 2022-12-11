@@ -33,8 +33,15 @@ using EduHome.ViewModels.Home;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.About;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c5400b3d8da9d462f79313c736f4c3f47d6a2921", @"/Views/Shared/Components/Slider/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"037a27921100b9d91902c3e2a9637924155c3ab9", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"66624e04f43eb03c8d776333081e4e884c674b39", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Slider_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Slider>>
     {
         #pragma warning disable 1998

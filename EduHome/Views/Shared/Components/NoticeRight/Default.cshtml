@@ -1,0 +1,17 @@
+﻿@model IEnumerable<NoticeRight>
+
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="notice-right">
+        @foreach (NoticeRight notice in Model)
+        {
+            <div class="single-notice-right ">
+                <h3>@notice.Title</h3>
+                <p>@notice.Description</p>
+            </div>
+        }
+    </div>
+</div>
+</div>
+</div>
+

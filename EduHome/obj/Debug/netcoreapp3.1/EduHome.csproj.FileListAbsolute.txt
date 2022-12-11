@@ -147,3 +147,8 @@ C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\EduHome.ge
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Slider\Default.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Choose\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Testimonial\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\NoticeLeft\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\NoticeRight\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
