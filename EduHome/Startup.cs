@@ -35,7 +35,9 @@ namespace EduHome
             });
 
 
-            //services.AddScoped<ILayoutServices, LayoutServices>();
+            services.AddTransient<ILayoutServices, LayoutServices>();
+
+            services.AddHttpContextAccessor();
 
         }
 

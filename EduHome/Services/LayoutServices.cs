@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EduHome.LayoutServices
+namespace EduHome.Services
 {
     public class LayoutServices : ILayoutServices
     {
@@ -14,12 +14,13 @@ namespace EduHome.LayoutServices
         public LayoutServices(AppDbContext context)
         {
             _context = context;
+        
         }
 
         public async Task<Dictionary<string,string>> GetSettingsAsync()
         {
             return await _context.Settings.
-                ToDictionaryAsync(s => s.Key,s => s.Value);
+               ToDictionaryAsync(s => s.Key, s => s.Value);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EduHome.DAL;
+using EduHome.ViewModels.Home;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +11,23 @@ namespace EduHome.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+        public HomeController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            //List<Setting> settings = _context.Settings.ToList();
+            //ViewBag.Settings = settings;
+
+            HomeVM homeVM = new HomeVM
+            {
+                Sliders = await _context.Sliders.Where(s => s.IsDeleted == false).ToListAsync(),
+            };
+
+            return View(homeVM);
         }
     }
 }
