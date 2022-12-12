@@ -9,5 +9,6 @@ namespace EduHome.ViewModels.About
     public class AboutVM
     {
         public IEnumerable<Testimonial> Testimonials { get; set; }
+        public IEnumerable<AboutContent> AboutContents { get; set; }
     }
 }

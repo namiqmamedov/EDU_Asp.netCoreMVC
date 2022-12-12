@@ -21,6 +21,7 @@ namespace EduHome.DAL
         public DbSet<NoticeRight> NoticeRights { get; set; }
         public DbSet<Choose> Chooses { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<AboutContent> AboutContents { get; set; }
 
     }
 }

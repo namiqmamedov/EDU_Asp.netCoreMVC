@@ -27,6 +27,8 @@
     <Compile Remove="Migrations\20221211155217_CreatedNoticesTable.Designer.cs" />
     <Compile Remove="Migrations\20221211183613_CreatedTestimonialsTable.cs" />
     <Compile Remove="Migrations\20221211183613_CreatedTestimonialsTable.Designer.cs" />
+    <Compile Remove="Migrations\20221212003914_CreatedAboutContentTable.cs" />
+    <Compile Remove="Migrations\20221212003914_CreatedAboutContentTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

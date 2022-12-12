@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AboutContent>
+
+<div class="about-area pt-145 pb-155">
+    <div class="container">
+        <div class="row">
+            @foreach (AboutContent content in Model)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="about-content">
+                        @Html.Raw(content.Title) 
+                        <p>@content.MainDescription</p>
+                        <p class="hidden-sm">@content.SubDescription</p>
+                        <a class="default-btn" href="@content.CourseLink">view courses</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="about-img">
+                        <img src="~/assets/img/about/@content.Image" alt="about">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -21,6 +21,7 @@ namespace EduHome.Controllers
             AboutVM aboutVM = new AboutVM
             {          
                 Testimonials = await _context.Testimonials.Where(t => t.IsDeleted == false).ToListAsync(),
+                AboutContents = await _context.AboutContents.Where(t => t.IsDeleted == false).ToListAsync(),
                
             };
 
