@@ -47,8 +47,15 @@ using EduHome.ViewModels.Contact;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Teacher;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1f9cea2ec176f08263747e485cce9fcaf282912", @"/Views/Shared/Components/ContactContent/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d234c3e7ca5f92341f9343ac7c66de47cb0bce6d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b34368b282ede7774e2c9d8b3f3ab41e24d6411c", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_ContactContent_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ContactContent>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString("contact"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -86,7 +93,7 @@ using EduHome.ViewModels.Contact;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"contact-icon\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f1f9cea2ec176f08263747e485cce9fcaf2829124443", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f1f9cea2ec176f08263747e485cce9fcaf2829124630", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

@@ -27,7 +27,6 @@ namespace EduHome.Controllers
         {
             Teacher teacher = _context.Teachers.Include(pi => pi.TeacherImages).FirstOrDefault(t => t.Id == id);
 
-
             return View(teacher);
         }
     }

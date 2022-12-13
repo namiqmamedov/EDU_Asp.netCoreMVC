@@ -1,5 +1,4 @@
-﻿@model Teacher
-
+﻿
 
 @await Component.InvokeAsync("Header", Model)
 
@@ -10,7 +9,7 @@
                 @foreach (TeacherImage image in Model.TeacherImages)
                 {
                     <div class="teacher-details-img">
-                        <img src="~/assets/img/teacher/@image.Name" alt="teacher">
+                        <img style="width: 100%;" src="~/assets/img/teacher/@image.Name" alt="teacher">
                     </div>
                 }
             </div>
@@ -33,9 +32,9 @@
             <div class="col-md-3 col-sm-4">
                 <div class="teacher-contact">
                     <h4>contact information</h4>
-                    <p><span>mail me : </span>stuart@eduhome.com</p>
-                    <p><span>make a call : </span>(+125) 5896 548 9874</p>
-                    <p><span>skype : </span> stuart.k</p>
+                    <p><span>mail me : </span>@Model.Email</p>
+                    <p><span>make a call : </span>@Model.Number</p>
+                    <p><span>skype : </span> @Model.Skype</p>
                     <ul>
                         <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>
                         <li><a href="https://www.pinterest.com/devitemsllc/"><i class="zmdi zmdi-pinterest"></i></a></li>

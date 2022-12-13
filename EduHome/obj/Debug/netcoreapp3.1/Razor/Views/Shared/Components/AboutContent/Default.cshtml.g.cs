@@ -47,8 +47,15 @@ using EduHome.ViewModels.Contact;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Teacher;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"be84b432e073450c87bfaba73e0168b8712dea9f", @"/Views/Shared/Components/AboutContent/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d234c3e7ca5f92341f9343ac7c66de47cb0bce6d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b34368b282ede7774e2c9d8b3f3ab41e24d6411c", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_AboutContent_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<AboutContent>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString("about"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -120,7 +127,7 @@ WriteAttributeValue("", 534, content.CourseLink, 534, 19, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">view courses</a>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-md-6 col-sm-6\">\r\n                    <div class=\"about-img\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "be84b432e073450c87bfaba73e0168b8712dea9f6178", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "be84b432e073450c87bfaba73e0168b8712dea9f6365", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
