@@ -29,6 +29,10 @@
     <Compile Remove="Migrations\20221211183613_CreatedTestimonialsTable.Designer.cs" />
     <Compile Remove="Migrations\20221212003914_CreatedAboutContentTable.cs" />
     <Compile Remove="Migrations\20221212003914_CreatedAboutContentTable.Designer.cs" />
+    <Compile Remove="Migrations\20221212190435_UpdatedNoticeLeftTableRemovedTitleProperty.cs" />
+    <Compile Remove="Migrations\20221212190435_UpdatedNoticeLeftTableRemovedTitleProperty.Designer.cs" />
+    <Compile Remove="Migrations\20221213010448_CreatedGoogleMapsTable.cs" />
+    <Compile Remove="Migrations\20221213010448_CreatedGoogleMapsTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,6 +22,12 @@ namespace EduHome.DAL
         public DbSet<Choose> Chooses { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<AboutContent> AboutContents { get; set; }
+        public DbSet<ContactContent> ContactContents { get; set; }
+        public DbSet<ContactForm> ContactForms { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<TeacherHobby> TeacherHobbies { get; set; }
+        public DbSet<Hobby> Hobbies { get; set; }
+       
 
     }
 }

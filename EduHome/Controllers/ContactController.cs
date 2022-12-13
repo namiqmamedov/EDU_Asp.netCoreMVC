@@ -1,6 +1,8 @@
 ﻿using EduHome.DAL;
+using EduHome.Models;
 using EduHome.ViewModels.Contact;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +22,14 @@ namespace EduHome.Controllers
         {
             ContactVM contactVM = new ContactVM
             {
-
+                ContactContents = await _context.ContactContents.Where(t => t.IsDeleted == false).ToListAsync(),
+                ContactForms = await _context.ContactForms.Where(t => t.IsDeleted == false).ToListAsync(),
 
             };
 
             return View(contactVM);
         }
+
+        
     }
 }

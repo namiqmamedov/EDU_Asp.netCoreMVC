@@ -1,0 +1,8 @@
+﻿@model Dictionary<string, string>
+
+<div class="map-area">
+    <!-- google-map-area start -->
+    <div class="google-map-area">
+        <iframe src="@Model.FirstOrDefault(t => t.Key == "ContactMap").Value" width="1480" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>

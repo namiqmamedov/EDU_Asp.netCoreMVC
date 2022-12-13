@@ -1189,11 +1189,10 @@ textarea {
 .notice-right-wrapper {margin-right: 27px}
 .single-notice-left, .single-notice-right{border-bottom: 1px solid #E7E7E7}
 .single-notice-right {
-    padding: 17px 0;
+    padding: 17px 0;    
 }
-.single-notice-left {
-   padding-bottom: 18px;
-
+#notice-left1 {
+    padding: 30px 0;
 }
     /*.single-notice-left:after {
     position: absolute;
@@ -1435,7 +1434,12 @@ textarea {
     content: "";
     background: rgba(44, 43, 94, 0.92);
 }
-.courses-area.two .section-title h2{color: #fff}
+.contact-add {
+    padding: 25px 0;
+}
+.courses-area.two .section-title h2 {
+    color: #fff
+}
 .courses-area.two .section-title, .courses-area.two .single-course{z-index: 1; position: relative}
 .courses-area.two .course-content {background: #fff}
 .course-title h3{
@@ -2762,7 +2766,7 @@ textarea {
   border: 1px solid #e3e3e3;
   border-radius: 50%;
   height: 50px;
-  margin: auto auto 20px;
+  margin: auto auto 2px;
   position: relative;
   text-align: center;
   width: 50px;
