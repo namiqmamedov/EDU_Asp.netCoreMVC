@@ -37,9 +37,9 @@ namespace EduHome.Models
         [StringLength(100)]
         public string VimeoURL { get; set; }
 
-        //public IEnumerable<TeacherImage> TeacherImages { get; set; }
-        //public IEnumerable<TeacherHobby> TeacherHobbies { get; set; }
-
+        public IEnumerable<TeacherImage> TeacherImages { get; set; }
+        public IEnumerable<TeacherHobby> TeacherHobbies { get; set; }
+        
         [NotMapped]
         public IEnumerable<int> HobbyIds { get; set; }
     }

@@ -1,5 +1,7 @@
 ﻿using EduHome.DAL;
+using EduHome.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +18,17 @@ namespace EduHome.Controllers
         }
         public IActionResult Index()
         {
-
-            return View();
+            List<Teacher> teachers = _context.Teachers.Include(ti => ti.TeacherImages).ToList();
+            
+            return View(teachers);
         }
 
-        public IActionResult TeacherDetail()
+        public IActionResult TeacherDetail(int? id)
         {
-            
-            return View();
+            Teacher teacher = _context.Teachers.Include(pi => pi.TeacherImages).FirstOrDefault(t => t.Id == id);
+
+
+            return View(teacher);
         }
     }
 }

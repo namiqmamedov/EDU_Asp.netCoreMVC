@@ -26,6 +26,7 @@ namespace EduHome.DAL
         public DbSet<ContactForm> ContactForms { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<TeacherHobby> TeacherHobbies { get; set; }
+        public DbSet<TeacherImage> TeacherImages { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
        
 

@@ -1,25 +1,30 @@
-﻿
+﻿@model Teacher
+
+
 @await Component.InvokeAsync("Header", Model)
 
 <div class="teacher-details-area pt-150 pb-60">
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-5 col-xs-12">
-                <div class="teacher-details-img">
-                    <img src="~/assets/img/teacher/teacher-details.jpg" alt="teacher">
-                </div>
+                @foreach (TeacherImage image in Model.TeacherImages)
+                {
+                    <div class="teacher-details-img">
+                        <img src="~/assets/img/teacher/@image.Name" alt="teacher">
+                    </div>
+                }
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="teacher-details-content ml-50">
-                    <h2>STUART KELVIN</h2>
-                    <h5>Associate Professor</h5>
+                    <h2>@Model.Fullname</h2>
+                    <h5>@Model.Rank</h5>
                     <h4>about me</h4>
-                    <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium ue laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quas i architeo beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas </p>
+                    <p>@Model.Description</p>
                     <ul>
-                        <li><span>degree: </span>PHD in Micro Biology</li>
-                        <li><span>experience: </span>7 years experience</li>
-                        <li><span>hobbies: </span>music, travelling, catching fish</li>
-                        <li><span>faculty: </span>Din, Department of Micro Biology</li>
+                        <li><span>degree: </span>@Model.Degree</li>
+                        <li><span>experience: </span>@Model.Experince</li>
+                        <li><span>hobbies: </span>@Model.TeacherHobbies</li>
+                        <li><span>faculty: </span>@Model.Faculty</li>
                     </ul>
                 </div>
             </div>
