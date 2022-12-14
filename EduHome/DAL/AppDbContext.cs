@@ -38,6 +38,9 @@ namespace EduHome.DAL
         public DbSet<BlogCategory> BlogCategories { get; set; }
         public DbSet<Description> Descriptions { get; set; }
         public DbSet<BlogDescription> BlogDescriptions { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventCategory> EventCategories { get; set; }
+        public DbSet<EventSpeaker> EventSpeakers { get; set; }
        
 
     }

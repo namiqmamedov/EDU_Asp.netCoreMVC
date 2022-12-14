@@ -34,9 +34,13 @@ namespace EduHome.Controllers
 
         public IActionResult BlogDetail(int? id)
         {
-            Blog blog = _context.Blogs.Include(b => b.BlogCategories).ThenInclude(b => b.Category).Include(d => d.BlogDescriptions).Include(tg => tg.BlogTags).ThenInclude(tg => tg.Tag).FirstOrDefault(b => b.Id == id);
+            BlogDetailVM blogDetailVM = new BlogDetailVM
+            {
+                Blog = _context.Blogs.Include(b => b.BlogCategories).ThenInclude(b => b.Category).Include(d => d.BlogDescriptions).Include(tg => tg.BlogTags).ThenInclude(tg => tg.Tag).FirstOrDefault(b => b.Id == id),
+                Blogs = _context.Blogs.Where(b => !b.IsDeleted).ToList()
+            };
 
-            return View(blog);
+            return View(blogDetailVM);
         }
     }
 }
