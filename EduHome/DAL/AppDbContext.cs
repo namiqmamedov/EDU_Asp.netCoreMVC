@@ -31,6 +31,13 @@ namespace EduHome.DAL
         public DbSet<TeacherSkill> TeacherSkills { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Hobby> Hobbies { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<BlogTag> BlogTags { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<BlogCategory> BlogCategories { get; set; }
+        public DbSet<Description> Descriptions { get; set; }
+        public DbSet<BlogDescription> BlogDescriptions { get; set; }
        
 
     }

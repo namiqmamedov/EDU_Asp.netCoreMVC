@@ -54,8 +54,15 @@ using EduHome.ViewModels.Teachers;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Blogs;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b54200688ceebc1479f7b34a368ede7260313d0f", @"/Views/Teacher/TeacherDetail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c4f6990fbfb6ec75cfe3765432b8f2b28ce7ee4a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8a18893106bf99e7530084d3e73fd6935206c281", @"/Views/_ViewImports.cshtml")]
     public class Views_Teacher_TeacherDetail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Teacher>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("style", new global::Microsoft.AspNetCore.Html.HtmlString("width: 100%;"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -93,7 +100,7 @@ Write(await Component.InvokeAsync("Header", Model));
 #line hidden
 #nullable disable
             WriteLiteral("\n\n<div class=\"teacher-details-area pt-150 pb-60\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-5 col-sm-5 col-xs-12\">\n                \n            <div class=\"teacher-details-img\">\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b54200688ceebc1479f7b34a368ede7260313d0f5061", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b54200688ceebc1479f7b34a368ede7260313d0f5246", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

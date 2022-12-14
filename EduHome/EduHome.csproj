@@ -43,6 +43,12 @@
     <Compile Remove="Migrations\20221213224608_UpdatedTeachersTableRelatedSkillsTable.Designer.cs" />
     <Compile Remove="Migrations\20221213224749_UpdatedTeachersTableRelatedSkillsTable.cs" />
     <Compile Remove="Migrations\20221213224749_UpdatedTeachersTableRelatedSkillsTable.Designer.cs" />
+    <Compile Remove="Migrations\20221214015155_CreatedBlogsTable.cs" />
+    <Compile Remove="Migrations\20221214015155_CreatedBlogsTable.Designer.cs" />
+    <Compile Remove="Migrations\20221214020208_CreatedBlogTagTable.cs" />
+    <Compile Remove="Migrations\20221214020208_CreatedBlogTagTable.Designer.cs" />
+    <Compile Remove="Migrations\20221214020326_CreatedBlogTagTable.cs" />
+    <Compile Remove="Migrations\20221214020326_CreatedBlogTagTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
