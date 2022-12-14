@@ -9,7 +9,8 @@ namespace EduHome.Models
     {
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
-        public int DescriptionId { get; set; }
-        public Description Description { get; set; }
+
+        public string SimpleDescription { get; set; }
+        public string QuoteDescription { get; set; }
     }
 }

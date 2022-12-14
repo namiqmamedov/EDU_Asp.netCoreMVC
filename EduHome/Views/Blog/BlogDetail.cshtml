@@ -1,7 +1,7 @@
 ﻿@model Blog
 
 
-
+@await Component.InvokeAsync("Header", Model)
 
 <div class="blog-details-area pt-150 pb-140">
     <div class="container">
@@ -14,8 +14,11 @@
                     <div class="blog-details-content">
                         <h2>@Model.Title</h2>
                         <p>By @Model.Name  /  @Model.Date.ToString("MMMe d, yyyy") /  <i class="fa fa-comments-o"></i> 1</p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human haness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque sa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volutatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui</p>
-                        <p class="quote">I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human haness pcias unde omnis iste natus error sit voluptatem accusantium doloremque la udantium, totam rem aperiam</p>
+                        @foreach (BlogDescription description in Model.BlogDescriptions)
+                        {
+                            <p>@description.SimpleDescription</p>
+                            <p class="quote">@description.QuoteDescription</p>
+                        }
                     </div>
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
@@ -73,49 +76,24 @@
                     </div>
                     <div class="single-blog-widget mb-47">
                         <h3>latest post</h3>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/img/post/post1.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
+                        @*@foreach (Blog blog in Model.SkipLast(3))
+                        {*@
+                            <div class="single-post mb-30">
+                                <div class="single-post-img">
+                                    <a href="blog-details.html">
+                                        <img src="~/assets/img/post/post1.jpg" alt="post">
+                                        <div class="blog-hover">
+                                            <i class="fa fa-link"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="single-post-content">
+                                    <h4><a href="blog-details.html">English Language Course for you</a></h4>
+                                    <p>By Alex  /  June 20, 2017</p>
+                                </div>
                             </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/img/post/post2.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">Advance Web Design and Develop</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
-                        <div class="single-post">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/img/post/post3.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
-                    </div>
+                        @*}*@
+                     </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>
                         <div class="single-tag">
@@ -125,10 +103,10 @@
 
                             }
                             @*<a href="blog-details.html" class="mr-10 mb-10">education</a>
-        <a href="blog-details.html" class="mb-10">teachers</a>
-        <a href="blog-details.html" class="mr-10">learning</a>
-        <a href="blog-details.html" class="mr-10">university</a>
-        <a href="blog-details.html">events</a>*@
+                                <a href="blog-details.html" class="mb-10">teachers</a>
+                                <a href="blog-details.html" class="mr-10">learning</a>
+                                <a href="blog-details.html" class="mr-10">university</a>
+                                <a href="blog-details.html">events</a>*@
                         </div>
                     </div>
                 </div>

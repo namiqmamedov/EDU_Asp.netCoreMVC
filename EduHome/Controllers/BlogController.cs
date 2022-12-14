@@ -34,7 +34,7 @@ namespace EduHome.Controllers
 
         public IActionResult BlogDetail(int? id)
         {
-            Blog blog = _context.Blogs.Include(b => b.BlogCategories).ThenInclude(b => b.Category).Include(tg => tg.BlogTags).ThenInclude(tg => tg.Tag).FirstOrDefault(b => b.Id == id);
+            Blog blog = _context.Blogs.Include(b => b.BlogCategories).ThenInclude(b => b.Category).Include(d => d.BlogDescriptions).Include(tg => tg.BlogTags).ThenInclude(tg => tg.Tag).FirstOrDefault(b => b.Id == id);
 
             return View(blog);
         }

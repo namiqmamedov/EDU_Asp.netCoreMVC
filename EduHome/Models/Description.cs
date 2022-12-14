@@ -8,7 +8,6 @@ namespace EduHome.Models
 {
     public class Description : BaseEntity
     {
-        public string SimpleDescription { get; set; }
-        public string QuoraDescription { get; set; }
+        
     }
 }
