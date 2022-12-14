@@ -1,0 +1,10 @@
+﻿@model IEnumerable<AboutNotice>
+
+
+@foreach (AboutNotice notice in Model)
+{
+
+<div class="single-notice-left mb-23 pb-20">
+    <h4>@notice.Date.ToString("d, MMMe, yyyy")</h4>
+    <p>@notice.Description</p>
+</div>}

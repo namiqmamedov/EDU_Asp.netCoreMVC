@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -36,10 +36,12 @@ namespace EduHome.Models
         public string TwitterURL { get; set; }
         [StringLength(100)]
         public string VimeoURL { get; set; }
-
-        public IEnumerable<TeacherImage> TeacherImages { get; set; }
+        [StringLength(255)]
+        public string Image { get; set; }
         public IEnumerable<TeacherHobby> TeacherHobbies { get; set; }
-        
+        public IEnumerable<TeacherSkill> TeacherSkills { get; set; }
+
+
         [NotMapped]
         public IEnumerable<int> HobbyIds { get; set; }
     }

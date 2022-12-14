@@ -1,0 +1,11 @@
+﻿@model IEnumerable<AboutVideo>
+
+@foreach (AboutVideo video in Model)
+{
+    <div class="notice-video">
+        <div class="video-icon video-hover">
+            @Html.Raw(video.VideoPopup)
+        </div>
+    </div>
+}
+

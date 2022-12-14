@@ -72,6 +72,83 @@ namespace EduHome.Migrations
                     b.ToTable("AboutContents");
                 });
 
+            modelBuilder.Entity("EduHome.Models.AboutNotice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AboutNotices");
+                });
+
+            modelBuilder.Entity("EduHome.Models.AboutVideo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VideoPopup")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AboutVideo");
+                });
+
             modelBuilder.Entity("EduHome.Models.Choose", b =>
                 {
                     b.Property<int>("Id")
@@ -363,6 +440,43 @@ namespace EduHome.Migrations
                     b.ToTable("Settings");
                 });
 
+            modelBuilder.Entity("EduHome.Models.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SkillName")
+                        .HasColumnType("nvarchar(55)")
+                        .HasMaxLength(55);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Skills");
+                });
+
             modelBuilder.Entity("EduHome.Models.Slider", b =>
                 {
                     b.Property<int>("Id")
@@ -463,6 +577,10 @@ namespace EduHome.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -544,7 +662,7 @@ namespace EduHome.Migrations
                     b.ToTable("TeacherHobbies");
                 });
 
-            modelBuilder.Entity("EduHome.Models.TeacherImage", b =>
+            modelBuilder.Entity("EduHome.Models.TeacherSkill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -566,9 +684,16 @@ namespace EduHome.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                    b.Property<string>("Number")
+                        .HasColumnType("nvarchar(105)")
+                        .HasMaxLength(105);
+
+                    b.Property<string>("Progress")
+                        .HasColumnType("nvarchar(105)")
+                        .HasMaxLength(105);
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
@@ -581,9 +706,11 @@ namespace EduHome.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SkillId");
+
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("TeacherImages");
+                    b.ToTable("TeacherSkills");
                 });
 
             modelBuilder.Entity("EduHome.Models.Testimonial", b =>
@@ -654,10 +781,16 @@ namespace EduHome.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EduHome.Models.TeacherImage", b =>
+            modelBuilder.Entity("EduHome.Models.TeacherSkill", b =>
                 {
+                    b.HasOne("EduHome.Models.Skill", "Skill")
+                        .WithMany()
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EduHome.Models.Teacher", "Teacher")
-                        .WithMany("TeacherImages")
+                        .WithMany("TeacherSkills")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

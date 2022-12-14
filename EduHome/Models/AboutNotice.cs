@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace EduHome.Models
 {
-    public class TeacherImage : BaseEntity
+    public class AboutNotice : BaseEntity
     {
+        public DateTime Date { get; set; }
         [StringLength(255)]
-        public string Name { get; set; }
-        public int TeacherId { get; set; }
-        public Teacher Teacher { get; set; }
+        public string Description { get; set; }
     }
 }

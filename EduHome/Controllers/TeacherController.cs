@@ -1,5 +1,6 @@
 ﻿using EduHome.DAL;
 using EduHome.Models;
+using EduHome.ViewModels.Teachers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,19 +17,27 @@ namespace EduHome.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            List<Teacher> teachers = _context.Teachers.Include(ti => ti.TeacherImages).ToList();
-            
-            return View(teachers);
-        }
+            TeacherVM teacherVM = new TeacherVM
+            {
+                Teachers = await _context.Teachers.Where(t => t.IsDeleted == false).ToListAsync(),
 
+            };
+                return View(teacherVM);           
+
+        }
         public IActionResult TeacherDetail(int? id)
         {
-            Teacher teacher = _context.Teachers.Include(pi => pi.TeacherImages).FirstOrDefault(t => t.Id == id);
+            Teacher teacher = _context.Teachers.Include(th => th.TeacherHobbies).ThenInclude(h => h.Hobby).Include(sk=>sk.TeacherSkills).ThenInclude(sk=>sk.Skill).FirstOrDefault(t => t.Id == id);
 
             return View(teacher);
         }
-    }
-}
+    };
+
+
+};
+
+
+
 

@@ -22,7 +22,9 @@ namespace EduHome.Controllers
             {          
                 Testimonials = await _context.Testimonials.Where(t => t.IsDeleted == false).ToListAsync(),
                 AboutContents = await _context.AboutContents.Where(t => t.IsDeleted == false).ToListAsync(),
-               
+                AboutNotices = await _context.AboutNotices.Where(t => t.IsDeleted == false).ToListAsync(),
+                AboutVideos = await _context.AboutVideo.Where(t => t.IsDeleted == false).ToListAsync(),
+
             };
 
             return View(aboutVM);

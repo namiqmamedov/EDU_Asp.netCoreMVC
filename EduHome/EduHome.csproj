@@ -33,6 +33,16 @@
     <Compile Remove="Migrations\20221212190435_UpdatedNoticeLeftTableRemovedTitleProperty.Designer.cs" />
     <Compile Remove="Migrations\20221213010448_CreatedGoogleMapsTable.cs" />
     <Compile Remove="Migrations\20221213010448_CreatedGoogleMapsTable.Designer.cs" />
+    <Compile Remove="Migrations\20221213211009_CreatedAboutVideoTable.cs" />
+    <Compile Remove="Migrations\20221213211009_CreatedAboutVideoTable.Designer.cs" />
+    <Compile Remove="Migrations\20221213223818_CreatedSkillTable.cs" />
+    <Compile Remove="Migrations\20221213223818_CreatedSkillTable.Designer.cs" />
+    <Compile Remove="Migrations\20221213224001_CreatedTeacherSkillTable.cs" />
+    <Compile Remove="Migrations\20221213224001_CreatedTeacherSkillTable.Designer.cs" />
+    <Compile Remove="Migrations\20221213224608_UpdatedTeachersTableRelatedSkillsTable.cs" />
+    <Compile Remove="Migrations\20221213224608_UpdatedTeachersTableRelatedSkillsTable.Designer.cs" />
+    <Compile Remove="Migrations\20221213224749_UpdatedTeachersTableRelatedSkillsTable.cs" />
+    <Compile Remove="Migrations\20221213224749_UpdatedTeachersTableRelatedSkillsTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
