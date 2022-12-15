@@ -49,6 +49,8 @@
     <Compile Remove="Migrations\20221214020208_CreatedBlogTagTable.Designer.cs" />
     <Compile Remove="Migrations\20221214020326_CreatedBlogTagTable.cs" />
     <Compile Remove="Migrations\20221214020326_CreatedBlogTagTable.Designer.cs" />
+    <Compile Remove="Migrations\20221215023531_CreatedCourseCategoriesTable.cs" />
+    <Compile Remove="Migrations\20221215023531_CreatedCourseCategoriesTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

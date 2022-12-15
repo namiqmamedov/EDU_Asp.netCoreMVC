@@ -16,7 +16,7 @@
                             <a asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id">
                                 <img src="~/assets/img/event/@item.Image" alt="event">
                                 <div class="course-hover">
-                                    <i class="fa fa-link"></i>
+                                    <a asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id" ><i class="fa fa-link"></i></a>
                                 </div>
                             </a>
                             <div class="event-date">
@@ -24,13 +24,13 @@
                             </div>
                         </div>
                         <div class="event-content text-left">
-                            <h4><a href="event-details.html">@item.Title</a></h4>
+                            <h4><a asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id">@item.Title</a></h4>
                             <ul>
                                 <li><span>time:</span> @item.Date </li>
                                 <li><span>venue</span> @item.Venue</li>
                             </ul>
                             <div class="event-content-right">
-                                <a class="default-btn" href="event-details.html">join now</a>
+                                <a class="default-btn" asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id">join now</a>
                             </div>
                         </div>
                     </div>

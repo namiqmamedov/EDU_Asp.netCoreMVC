@@ -43,6 +43,11 @@ namespace EduHome.DAL
         public DbSet<EventSpeaker> EventSpeakers { get; set; }
         public DbSet<EventDescription> EventDescriptions { get; set; }
         public DbSet<EventTag> EventTags { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseTag> CourseTags { get; set; }
+        public DbSet<CourseCategory> CourseCategories { get; set; }
+        public DbSet<DetailTitle> DetailTitles { get; set; }
+        public DbSet<CourseDetailTitle> CourseDetailTitles { get; set; }
        
 
     }
