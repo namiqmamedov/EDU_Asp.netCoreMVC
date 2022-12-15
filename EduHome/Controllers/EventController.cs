@@ -1,4 +1,5 @@
 ﻿using EduHome.DAL;
+using EduHome.Models;
 using EduHome.ViewModels.Events;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,18 +18,34 @@ namespace EduHome.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
             EventVM eventVM = new EventVM
             {
                 Events = await _context.Events.Where(e => e.IsDeleted == false).ToListAsync(),
                 EventCategories = await _context.EventCategories.Where(e => e.IsDeleted == false).ToListAsync(),
                 EventSpeakers = await _context.EventSpeakers.Where(e => e.IsDeleted == false).ToListAsync(),
+                EventDescriptions = await _context.EventDescriptions.Where(e => e.IsDeleted == false).ToListAsync(),
+                Blogs = await _context.Blogs.Where(b => b.IsDeleted == false).ToListAsync(),
 
             };
 
-
             return View(eventVM);
         }
+
+        public IActionResult EventDetail(int? id)
+        {
+            EventDetailVM eventDetailVM = new EventDetailVM
+            {
+                Event = _context.Events.Include(e => e.EventCategories).ThenInclude(e => e.Category).Include(e => e.EventDescriptions).Include(e=>e.EventSpeakers).ThenInclude(e=>e.Teacher).FirstOrDefault(e => e.Id == id),
+                Events = _context.Events.Where(e => !e.IsDeleted).ToList(),
+                Blogs = _context.Blogs.Where(b => !b.IsDeleted).ToList()
+            };
+
+
+            return View(eventDetailVM);
+        }
+
+
     }
 }

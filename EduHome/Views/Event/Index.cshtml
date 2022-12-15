@@ -13,7 +13,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="single-event mb-60">
                         <div class="event-img">
-                            <a>
+                            <a asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id">
                                 <img src="~/assets/img/event/@item.Image" alt="event">
                                 <div class="course-hover">
                                     <i class="fa fa-link"></i>
@@ -26,7 +26,7 @@
                         <div class="event-content text-left">
                             <h4><a href="event-details.html">@item.Title</a></h4>
                             <ul>
-                                <li><span>time:</span> 9.00 AM - 4.45 PM</li>
+                                <li><span>time:</span> @item.Date </li>
                                 <li><span>venue</span> @item.Venue</li>
                             </ul>
                             <div class="event-content-right">
@@ -37,7 +37,6 @@
                 </div>
             }
 
-            }
 
         </div>
 </div>

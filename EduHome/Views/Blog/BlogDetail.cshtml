@@ -17,7 +17,7 @@
                         <p>By @Model.Blog.Name  /  @Model.Blog.Date.ToString("MMMe d, yyyy") /  <i class="fa fa-comments-o"></i> 1</p>
                         @foreach (BlogDescription description in Model.Blog.BlogDescriptions)
                         {
-            <p>@description.SimpleDescription</p>
+                             <p>@description.SimpleDescription</p>
                             <p class="quote">@description.QuoteDescription</p>}
                     </div>
                     <div class="reply-area">
@@ -60,13 +60,13 @@
                     </div>
                     @foreach (BlogCategory category in Model.Blog.BlogCategories)
                     {
-        <div class="single-blog-widget mb-47">
-            <h3>categories</h3>
-            <ul>
-                <li><a href="#">@category.Category.Name</a></li>
+                    <div class="single-blog-widget mb-47">
+                        <h3>categories</h3>
+                        <ul>
+                            <li><a href="#">@category.Category.Name</a></li>
 
-            </ul>
-        </div>}
+                        </ul>
+                    </div>}
                     <div class="single-blog-widget mb-47">
                         <div class="single-blog-banner">
                             <a href="blog-details.html" id="blog"><img src="~/assets/img/blog/blog-img.jpg" alt="blog"></a>

@@ -1,4 +1,6 @@
-﻿
+﻿@model EventDetailVM
+
+
 @await Component.InvokeAsync("Header", Model)
 
 <div class="event-details-area blog-area pt-150 pb-140">
@@ -7,42 +9,42 @@
             <div class="col-md-8">
                 <div class="event-details">
                     <div class="event-details-img">
-                        <img src="~/assets/img/event/event-details.jpg" alt="event-details">
+                        <img style="width: 100%;" src="~/assets/img/event/@Model.Event.Image" alt="event-details">
                         <div class="event-date">
-                            <h3>20 <span>jun</span></h3>
+                            @Html.Raw(Model.Event.EventDate)
                         </div>
                     </div>
                     <div class="event-details-content">
-                        <h2>ADVANCE WED DEVELOPMENT WORKSHOP</h2>
+                        <h2>@Model.Event.Title</h2>
                         <ul>
-                            <li><span>time : </span>9:30am - 4:45pm</li>
-                            <li><span>venue : </span>Cristal Centre, 254 New Yourk</li>
+                            <li><span>time : </span>@Model.Event.Date</li>
+                            <li><span>venue : </span>@Model.Event.Venue</li>
                         </ul>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui </p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem </p>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                        <div class="speakers-area fix">
-                            <h4>speakers</h4>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/assets/img/event/speaker1.jpg" alt="speaker">
-                                </div>
-                                <div class="speaker-name">
-                                    <h5>Anthony Smith</h5>
-                                    <p>CEO, Hastech </p>
-                                </div>
-                            </div>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/assets/img/event/speaker2.jpg" alt="speaker">
-                                </div>
-                                <div class="speaker-name">
-                                    <h5>Lucy Rose</h5>
-                                    <p>Developer, STD </p>
-                                </div>
+                        @foreach (EventDescription description in Model.Event.EventDescriptions)
+                        {
+                            <p>@description.SimpleDescription</p>
+                        }
+                            <div class="speakers-area fix">
+                                <h4>speakers</h4>
+                                @foreach (EventSpeaker speaker in Model.Event.EventSpeakers)
+                                {
+                                    <div class="single-speaker">
+                                        <div style="width: 100%;" class="speaker-img">
+                                            <img style="width: 32%;" src="~/assets/img/teacher/@speaker.Teacher.Image" alt="speaker">
+                                        </div>
+                                        <div style="display: flex;position:relative;left:-67%;" class="speaker-name">
+                                            <div class="spk-name">
+                                                <h5 style="min-width:155px;">@speaker.Teacher.Fullname</h5>
+                                                <p>@speaker.Teacher.Rank </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                }
+
+
                             </div>
                         </div>
-                    </div>
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
                         <p>I must explain to you how all this a mistaken idea of ncing great explorer of the rut<br> the is lder of human happinescias unde omnis iste natus error sit volptatem </p>
@@ -101,48 +103,24 @@
                     </div>
                     <div class="single-blog-widget mb-50">
                         <h3>latest post</h3>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/img/post/post1.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
+                        @foreach (Blog blog in Model.Blogs.Take(3))
+                        {
+                            <div class="single-post mb-30">
+                                <div class="single-post-img">
+                                    <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">
+                                        <img style="width: 122px; margin-top: 10px;" src="~/assets/img/blog/@blog.Image" alt="post">
+                                        <div class="blog-hover">
+                                            <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="single-post-content">
+                                    <h4><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">@blog.Title</a></h4>
+                                    <p>By @blog.Name  /   @blog.Date.ToString("MMMe d, yyyy")</p>
+                                </div>
                             </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
-                        <div class="single-post mb-30">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/img/post/post2.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">Advance Web Design and Develop</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
-                        <div class="single-post">
-                            <div class="single-post-img">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/img/post/post3.jpg" alt="post">
-                                    <div class="blog-hover">
-                                        <i class="fa fa-link"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single-post-content">
-                                <h4><a href="blog-details.html">English Language Course for you</a></h4>
-                                <p>By Alex  /  June 20, 2017</p>
-                            </div>
-                        </div>
+
+                        }
                     </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>

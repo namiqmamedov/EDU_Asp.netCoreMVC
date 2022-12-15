@@ -10,18 +10,20 @@ namespace EduHome.Models
     {
 
         [StringLength(45)]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         [StringLength(255)]
         public string EventDate { get; set; }
         [StringLength(255)]
         public string Venue { get; set; }
         [StringLength(255)]
         public string Title { get; set; }
-        [StringLength(255)]
-        public string Name { get; set; }
 
         [StringLength(255)]
         public string Image { get; set; }
+
+        public IEnumerable<EventCategory> EventCategories { get; set; }
+        public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
+        public IEnumerable<EventDescription> EventDescriptions { get; set; }
 
         [StringLength(255)]
         public string FormName { get; set; }
