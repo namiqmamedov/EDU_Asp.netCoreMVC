@@ -76,7 +76,7 @@ using EduHome.ViewModels.Courses;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f5a81b0c39d00064d2ba6f629c812432f3020d30", @"/Views/Shared/Components/AboutNotice/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"772b33702e1aff5bb28696d60be52bca44a1ae88", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2ad96c8846a84288362d2ca13203bb27d261f717", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_AboutNotice_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<AboutNotice>>
     {
         #pragma warning disable 1998

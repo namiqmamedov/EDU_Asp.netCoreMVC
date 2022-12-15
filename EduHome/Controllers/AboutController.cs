@@ -24,6 +24,7 @@ namespace EduHome.Controllers
                 AboutContents = await _context.AboutContents.Where(t => t.IsDeleted == false).ToListAsync(),
                 AboutNotices = await _context.AboutNotices.Where(t => t.IsDeleted == false).ToListAsync(),
                 AboutVideos = await _context.AboutVideo.Where(t => t.IsDeleted == false).ToListAsync(),
+                Teachers = await _context.Teachers.Where(t => t.IsDeleted == false).ToListAsync(),
 
             };
 

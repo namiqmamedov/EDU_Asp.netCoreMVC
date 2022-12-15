@@ -12,5 +12,6 @@ namespace EduHome.ViewModels.Courses
         public List<Course> Courses { get; set; }
         public Blog Blog { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Category> categories { get; set; }
     }
 }

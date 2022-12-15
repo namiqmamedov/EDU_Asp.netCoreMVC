@@ -10,5 +10,6 @@ namespace EduHome.Models
     {
         [StringLength(255)]
         public string Name { get; set; }
+        public IEnumerable<Course> Courses { get; set; }
     }
 }

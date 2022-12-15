@@ -33,11 +33,12 @@
 </head>
 <body>
 
+    @await Component.InvokeAsync("Header", Model)
 
 
     @RenderBody()
 
-    
+
 
     <!-- Subscribe Start -->
     <div class="subscribe-area pt-60 pb-70">

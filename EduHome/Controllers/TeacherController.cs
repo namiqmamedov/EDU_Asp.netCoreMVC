@@ -29,7 +29,7 @@ namespace EduHome.Controllers
         }
         public IActionResult TeacherDetail(int? id)
         {
-            Teacher teacher = _context.Teachers.Include(th => th.TeacherHobbies).ThenInclude(h => h.Hobby).Include(sk=>sk.TeacherSkills).ThenInclude(sk=>sk.Skill).FirstOrDefault(t => t.Id == id);
+            Teacher teacher = _context.Teachers.Include(sk=>sk.TeacherSkills).ThenInclude(sk=>sk.Skill).FirstOrDefault(t => t.Id == id);
 
             return View(teacher);
         }

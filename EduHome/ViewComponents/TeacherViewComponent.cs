@@ -10,8 +10,8 @@ namespace EduHome.ViewComponents
     public class TeacherViewComponent : ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync(IEnumerable<Teacher> teachers)
-    {
-        return View(await Task.FromResult(teachers));
+        {
+            return View(await Task.FromResult(teachers));
+        }
     }
-}
 }

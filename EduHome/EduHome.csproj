@@ -51,6 +51,22 @@
     <Compile Remove="Migrations\20221214020326_CreatedBlogTagTable.Designer.cs" />
     <Compile Remove="Migrations\20221215023531_CreatedCourseCategoriesTable.cs" />
     <Compile Remove="Migrations\20221215023531_CreatedCourseCategoriesTable.Designer.cs" />
+    <Compile Remove="Migrations\20221215111747_CreatedSubscribeAreaTable.cs" />
+    <Compile Remove="Migrations\20221215111747_CreatedSubscribeAreaTable.Designer.cs" />
+    <Compile Remove="Migrations\20221215123239_updateCategoryTable.cs" />
+    <Compile Remove="Migrations\20221215123239_updateCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20221215124856_UpdaetCategoryTable.cs" />
+    <Compile Remove="Migrations\20221215124856_UpdaetCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20221215133421_UpdatedTeacherTableChangeRelationOneToMany.cs" />
+    <Compile Remove="Migrations\20221215133421_UpdatedTeacherTableChangeRelationOneToMany.Designer.cs" />
+    <Compile Remove="Migrations\20221215133742_UpdatedTeacherTableChangeRelationOneToMany.cs" />
+    <Compile Remove="Migrations\20221215133742_UpdatedTeacherTableChangeRelationOneToMany.Designer.cs" />
+    <Compile Remove="Migrations\20221215133940_UpdatedTeacherTableChangeRelationOneToMany.cs" />
+    <Compile Remove="Migrations\20221215133940_UpdatedTeacherTableChangeRelationOneToMany.Designer.cs" />
+    <Compile Remove="Migrations\20221215134003_UpdatedTeacherTableChangeRelationOneToMany.cs" />
+    <Compile Remove="Migrations\20221215134003_UpdatedTeacherTableChangeRelationOneToMany.Designer.cs" />
+    <Compile Remove="Migrations\20221215134334_UpdatedTeacherTableChangeRelationOneToMany.cs" />
+    <Compile Remove="Migrations\20221215134334_UpdatedTeacherTableChangeRelationOneToMany.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,10 +77,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Shared\Components\Teacher\" />
   </ItemGroup>
 
 </Project>

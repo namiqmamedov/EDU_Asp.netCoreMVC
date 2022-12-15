@@ -1,10 +1,5 @@
 ﻿@model CourseDetailVM
 
-@{
-    int counter = 1;
-}
-
-@await Component.InvokeAsync("Header", Model)
 
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -33,16 +28,17 @@
                     </div>
                     <div class="course-details-content">
                         <h2>@Model.Course.Title</h2>
-                        <p>HEL</p>
+                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui</p>
                         <div class="course-details-left">
                             @foreach (CourseDetailTitle course in Model.Course.CourseDetailTitles)
                             {
                                 <div class="single-course-left">
-                                    <h3>@course.DetailTitle.Title</h3>
+                                    <h3>@course.DetailTitle?.Title</h3>
                                     <p>@course.Description</p>
                                 </div> @*Model.TeacherHobbies.Select(h => h.Hobby.Name))*@
                             }
 
+                            
                         </div>
                         <div class="course-details-right">
                             <h3>COURSE FEATURES</h3>
@@ -100,16 +96,16 @@
                     <div class="single-blog-widget mb-50">
                         <h3>categories</h3>
                         <ul>
-                            <li><a href="#">CSS Engineering (@counter)</a></li>
-                            <li><a href="#">Political Science (@counter)</a></li>
-                            <li><a href="#">Micro Biology (@counter)</a></li>
-                            <li><a href="#">HTML5 &amp; CSS3 (@counter)</a></li>
-                            <li><a href="#">Web Design (@counter)</a></li>
-                            <li><a href="#">PHP (@counter)</a></li>
+                            @foreach (Category item in Model.categories)
+                            {
+                                <li><a href="#">@item.Name (@item.Courses.Count())</a></li>
+                            }
+                           
 
                         </ul>
 
                     </div>
+                   
                        
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">

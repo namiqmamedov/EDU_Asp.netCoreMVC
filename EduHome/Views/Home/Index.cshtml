@@ -1,286 +1,224 @@
 ﻿@model HomeVM
-<!-- Header Area Start -->
-<header class="top">
-    <div class="header-area header-sticky fixed">
+
+@inject LayoutService layoutservices
+
+@{ Dictionary<string, string> settings = await layoutservices.GetSettingsAsync();
+    Layout = null;}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Eduhome - Educational HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/animate.css">
+    <link rel="stylesheet" href="~/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="~/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/et-line-icon.css">
+    <link rel="stylesheet" href="~/assets/css/reset.css">
+    <link rel="stylesheet" href="~/assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
+    <script src="~/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+
+    <!-- Header Area Start -->
+    <header class="top">
+        <div class="header-area header-sticky fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="logo">
+                            <a asp-controller="home"><img src="~/assets/img/logo/logo.png" alt="eduhome" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="content-wrapper one">
+                            <!-- Main Menu Start -->
+                            <div class="main-menu one text-right">
+                                <nav>
+                                    <ul>
+                                        <li>
+                                            <a asp-controller="home">Home</a>
+                                            <ul>
+                                                <li><a href="index.html">Home One</a></li>
+                                                <li><a href="index-2.html">Home Two</a></li>
+                                                <li><a href="index-3.html">Home Three</a></li>
+                                                <li><a href="index-4.html">Home Four</a></li>
+                                                <li><a href="index-5.html">Home Five</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a asp-controller="about">About</a></li>
+                                        <li>
+                                            <a asp-controller="course">courses</a>
+                                            <ul>
+                                                <li><a href="course.html">courses</a></li>
+                                                <li><a href="course-details.html">courses details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="event">Event</a>
+                                            <ul>
+                                                <li><a href="event.html">event</a></li>
+                                                <li><a href="event-left-side-bar.html">event left sidebar</a></li>
+                                                <li><a href="event-right-side-bar.html">event right sidebar</a></li>
+                                                <li><a href="event-details.html">event details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="hidden-sm">
+                                            <a asp-controller="teacher">teacher</a>
+                                            <ul>
+                                                <li><a href="teacher.html">teacher</a></li>
+                                                <li><a href="teacher-details.html">teacher details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="blog">blog</a>
+                                            <ul>
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
+                                                <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
+                                                <li><a href="blog-details.html">blog details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a asp-controller="contact">Contact</a></li>
+                                        <li><a href="#">Buy Now</a>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="mobile-menu hidden-lg hidden-md one"></div>
+                            <!-- Main Menu End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+    <!-- Background Area Start -->
+    @await Component.InvokeAsync("Slider", Model)
+    <!-- Background Area End -->
+    <!-- Notice Start -->
+
+    <section class="notice-area pt-150 pb-150">
+        @await Component.InvokeAsync("NoticeLeft", Model)
+        @await Component.InvokeAsync("NoticeRight", Model)
+    </section>
+    <!-- Notice End -->
+    <!-- Choose Start -->
+    @await Component.InvokeAsync("Choose", Model)
+    <!-- Choose Area End -->
+    <!-- Courses Area Start -->
+    <div class="courses-area pt-150 text-center">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="logo">
-                        <a asp-controller="home"><img src="~/assets/img/logo/logo.png" alt="eduhome" /></a>
-                    </div>
-                </div>
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <div class="content-wrapper one">
-                        <!-- Main Menu Start -->
-                        <div class="main-menu one text-right">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a asp-controller="home">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="index-2.html">Home Two</a></li>
-                                            <li><a href="index-3.html">Home Three</a></li>
-                                            <li><a href="index-4.html">Home Four</a></li>
-                                            <li><a href="index-5.html">Home Five</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a asp-controller="about">About</a></li>
-                                    <li>
-                                        <a asp-controller="course">courses</a>
-                                        <ul>
-                                            <li><a href="course.html">courses</a></li>
-                                            <li><a href="course-details.html">courses details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a asp-controller="event">Event</a>
-                                        <ul>
-                                            <li><a href="event.html">event</a></li>
-                                            <li><a href="event-left-side-bar.html">event left sidebar</a></li>
-                                            <li><a href="event-right-side-bar.html">event right sidebar</a></li>
-                                            <li><a href="event-details.html">event details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="hidden-sm">
-                                        <a asp-controller="teacher">teacher</a>
-                                        <ul>
-                                            <li><a href="teacher.html">teacher</a></li>
-                                            <li><a href="teacher-details.html">teacher details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a asp-controller="blog">blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
-                                            <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a asp-controller="contact">Contact</a></li>
-                                    <li><a href="#">Buy Now</a>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="mobile-menu hidden-lg hidden-md one"></div>
-                        <!-- Main Menu End -->
+                <div class="col-xs-12">
+                    <div class="section-title">
+                        <img src="~/assets/img/icon/section.png" alt="section-title">
+                        <h2>COURSES WE OFFER</h2>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                @foreach (Course course in Model.Courses.Take(3))
+                {
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-course">
+            <div class="course-img">
+                <a asp-controller="course" asp-action="coursedetail" asp-route-id="@course.Id">
+                    <img src="~/assets/img/course/@course.Image" alt="course">
+                    <div class="course-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="course-content">
+                <h3><a asp-controller="course" asp-action="coursedetail" asp-route-id="@course.Id"></a>@course.Title</h3>
+                <p>@course.Description</p>
+                <a class="default-btn" asp-controller="course" asp-action="coursedetail" asp-route-id="@course.Id">read more</a>
+            </div>
+        </div>
+    </div>  }
+            </div>
         </div>
     </div>
-</header>
-<!-- Header Area End -->
-<!-- Background Area Start -->
-@await Component.InvokeAsync("Slider", Model)
-<!-- Background Area End -->
-<!-- Notice Start -->
+    <!-- Courses Area End -->
+    <!-- Event Area Start -->
+    <div class="event-area one text-center pt-140 pb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section-title">
+                        <img src="~/assets/img/icon/section.png" alt="section-title">
+                        <h2>UPCOMMING EVENTS</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (Event events in Model.Events.Take(4))
+                {
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="single-event mb-35">
+            <div class="event-date">
+                @Html.Raw(events.EventDate)
+            </div>
+            <div class="event-content text-left">
+                <div class="event-content-left">
+                    <h4><a asp-controller="event" asp-action="eventdetail" asp-route-id="@events.Id">@events.Title</a></h4>
+                    <ul>
+                        <li><i class="fa fa-clock-o"></i>@events.Date</li>
+                        <li><i class="fa fa-map-marker"></i>@events.Venue</li>
+                    </ul>
+                </div>
+                <div class="event-content-right">
+                    <a class="default-btn" asp-controller="event" asp-action="eventdetail" asp-route-id="@events.Id">join now</a>
+                </div>
+            </div>
+        </div>
 
-<section class="notice-area pt-150 pb-150">
-    @await Component.InvokeAsync("NoticeLeft", Model)
-    @await Component.InvokeAsync("NoticeRight", Model)
-</section>
-<!-- Notice End -->
-<!-- Choose Start -->
-@await Component.InvokeAsync("Choose", Model)
-<!-- Choose Area End -->
-<!-- Courses Area Start -->
-<div class="courses-area pt-150 text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="section-title">
-                    <img src="~/assets/img/icon/section.png" alt="section-title">
-                    <h2>COURSES WE OFFER</h2>
+    </div>}
+                @foreach (Event events in Model.Events.Skip(5))
+                {
+    <div class="col-md-6 hidden-sm hidden-xs">
+        <div class="single-event mb-35">
+            <div class="event-date">
+                @Html.Raw(events.EventDate)
+            </div>
+            <div class="event-content text-left">
+                <div class="event-content-left">
+                    <h4><a href="event-details.html">@events.Title</a></h4>
+                    <ul>
+                        <li><i class="fa fa-clock-o"></i>@events.Date</li>
+                        <li><i class="fa fa-map-marker"></i>@events.Venue</li>
+                    </ul>
+                </div>
+                <div class="event-content-right">
+                    <a class="default-btn" href="event-details.html">join now</a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            @foreach (Course course in Model.Courses.Take(3))
-            { 
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="single-course">
-                        <div class="course-img">
-                            <a  asp-controller="course" asp-action="coursedetail" asp-route-id="@course.Id">
-                                <img src="~/assets/img/course/@course.Image" alt="course">
-                                <div class="course-hover">
-                                    <i class="fa fa-link"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="course-content">
-                            <h3><a asp-controller="course" asp-action="coursedetail" asp-route-id="@course.Id"></a>@course.Title</h3>
-                            <p>@course.Description</p>
-                            <a class="default-btn"  asp-controller="course" asp-action="coursedetail" asp-route-id="@course.Id">read more</a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-</div>
-<!-- Courses Area End -->
-<!-- Event Area Start -->
-<div class="event-area one text-center pt-140 pb-150">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="section-title">
-                    <img src="~/assets/img/icon/section.png" alt="section-title">
-                    <h2>UPCOMMING EVENTS</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">20 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">MICRO BIOLOGICAL WORKSHOP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">18 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">ADVANCE PHP WORKSHOP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">16 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">LEARN ENGLISH HISTORY</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">14 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">GLOBAL ECONOMIC CONFERENCE</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 hidden-sm hidden-xs">
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">12 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">MATHEMATICAL WORKSHOP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">10 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">WORDPRESS AUTHOR MEET UP</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event mb-35">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">08 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">DIGITAL MARKETING ANALYSIS</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-event">
-                    <div class="event-date">
-                        <h3><a href="event-details.html">06 <span>June</span></a></h3>
-                    </div>
-                    <div class="event-content text-left">
-                        <div class="event-content-left">
-                            <h4><a href="event-details.html">WROKSHOP ON UI &amp; UX</a></h4>
-                            <ul>
-                                <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                            </ul>
-                        </div>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
+
+    </div>}
             </div>
         </div>
     </div>
-</div>
-<!-- Event Area End -->
-<!-- Testimonial Area Start -->
-@await Component.InvokeAsync("Testimonial", Model)
-<!-- Testimonial Area End -->
-<!-- Blog Area Start -->
+    <!-- Event Area End -->
+    <!-- Testimonial Area Start -->
+    @await Component.InvokeAsync("Testimonial", Model)
+    <!-- Testimonial Area End -->
+    <!-- Blog Area Start -->
 
 
     <div class="blog-area pt-150 pb-150">
@@ -297,28 +235,47 @@
             <div class="row">
                 @foreach (Blog blog in Model.Blogs.Take(3))
                 {
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="single-blog">
-                            <div class="blog-img">
-                                <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id"><img src="~/assets/img/blog/@blog.Image" alt="blog"></a>
-                                <div class="blog-hover">
-                                    <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-top">
-                                    <p>@blog.Name  /   @blog.Date.ToString("MMMe d, yyyy") <i class="fa fa-comments-o"></i> 1</p>
-                                </div>
-                                <div class="blog-bottom">
-                                    <h2><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id" >@blog.Title</a></h2>
-                                    <a href="blog-details.html">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-blog">
+            <div class="blog-img">
+                <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id"><img src="~/assets/img/blog/@blog.Image" alt="blog"></a>
+                <div class="blog-hover">
+                    <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">><i class="fa fa-link"></i></a>
                 </div>
+            </div>
+            <div class="blog-content">
+                <div class="blog-top">
+                    <p>@blog.Name  /   @blog.Date.ToString("MMMe d, yyyy") <i class="fa fa-comments-o"></i> 1</p>
+                </div>
+                <div class="blog-bottom">
+                    <h2><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">@blog.Title</a></h2>
+                    <a href="blog-details.html">read more</a>
+                </div>
+            </div>
+        </div>
+    </div>}
+            </div>
         </div>
     </div>
 
-<!-- Blog Area End -->
+    <!-- Blog Area End -->
+    <!-- Subscribe Start -->
+    @await Component.InvokeAsync("SubscribeArea", settings)
+    <!-- Subscribe End -->
+    <!-- Footer Start -->
+    @await Component.InvokeAsync("Footer", settings)
+    <!-- Footer End -->
+
+    <script src="~/assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.meanmenu.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.js"></script>
+    <script src="~/assets/js/ajax-mail.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/jquery.mb.YTPlayer.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -22,7 +22,6 @@ namespace EduHome.Controllers
             CourseVM courseVM = new CourseVM
             {
                 Courses = await _context.Courses.Where(e => e.IsDeleted == false).ToListAsync(),
-                CourseCategories = await _context.CourseCategories.Where(e => e.IsDeleted == false).ToListAsync(),
                 CourseTags = await _context.CourseTags.Where(e => e.IsDeleted == false).ToListAsync(),
                 CourseDetailTitles = await _context.CourseDetailTitles.Where(e => e.IsDeleted == false).ToListAsync(),
                 Blogs = await _context.Blogs.Where(b => b.IsDeleted == false).ToListAsync(),
@@ -36,9 +35,10 @@ namespace EduHome.Controllers
         {
             CourseDetailVM courseDetailVM = new CourseDetailVM
             {
-                Course = _context.Courses.Include(c=>c.CourseCategories).ThenInclude(c=>c.Category).Include(c=>c.CourseTags).ThenInclude(c=>c.Tag).Include(c=>c.CourseDetailTitles).ThenInclude(c=>c.DetailTitle).FirstOrDefault(c=>c.Id == id),
+                Course = _context.Courses.Include(c => c.Category).Include(c => c.CourseTags).ThenInclude(c => c.Tag).Include(c => c.CourseDetailTitles).ThenInclude(c => c.DetailTitle).FirstOrDefault(c => c.Id == id),
                 Courses = _context.Courses.Where(c => !c.IsDeleted).ToList(),
-                Blogs = _context.Blogs.Where(b => !b.IsDeleted).ToList()
+                Blogs = _context.Blogs.Where(b => !b.IsDeleted).ToList(),
+                categories = _context.Categories.Where(b => !b.IsDeleted).Include(c => c.Courses).ToList()
             };
 
             return View(courseDetailVM);

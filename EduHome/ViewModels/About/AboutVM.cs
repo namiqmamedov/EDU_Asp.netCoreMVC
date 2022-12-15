@@ -12,5 +12,6 @@ namespace EduHome.ViewModels.About
         public IEnumerable<AboutContent> AboutContents { get; set; }
         public IEnumerable<AboutNotice> AboutNotices { get; set; }
         public IEnumerable<AboutVideo> AboutVideos { get; set; }
+        public IEnumerable<Teacher> Teachers { get; set; }
     }
 }

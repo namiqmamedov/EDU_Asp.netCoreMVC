@@ -30,6 +30,7 @@ namespace EduHome.Controllers
                 NoticeRights = await _context.NoticeRights.Where(s => s.IsDeleted == false).ToListAsync(),
                 Blogs = await _context.Blogs.Where(s => s.IsDeleted == false).ToListAsync(),
                 Courses = await _context.Courses.Where(s => s.IsDeleted == false).ToListAsync(),
+                Events = await _context.Events.Where(e => e.IsDeleted == false).ToListAsync(),
             };
 
             return View(homeVM);
