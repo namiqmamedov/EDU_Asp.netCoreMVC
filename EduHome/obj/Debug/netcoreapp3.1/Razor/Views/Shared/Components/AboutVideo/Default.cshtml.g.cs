@@ -68,8 +68,15 @@ using EduHome.ViewModels.Events;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Courses;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d7aad89ac834d848196597091dc3f2a9cdc03620", @"/Views/Shared/Components/AboutVideo/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4201ec7d7b04104ec6b4fe03d5ffdb5257123350", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"772b33702e1aff5bb28696d60be52bca44a1ae88", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_AboutVideo_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<AboutVideo>>
     {
         #pragma warning disable 1998

@@ -167,3 +167,4 @@ C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Event\Index.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Event\EventDetail.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Course\Index.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Course\CourseDetail.cshtml.g.cs

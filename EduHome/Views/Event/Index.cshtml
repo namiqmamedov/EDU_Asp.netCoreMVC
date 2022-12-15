@@ -3,6 +3,21 @@
 
 @await Component.InvokeAsync("Header", Model)
 
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>event</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="event-area three text-center pt-150 pb-150">
     <div class="container">
@@ -16,11 +31,11 @@
                             <a asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id">
                                 <img src="~/assets/img/event/@item.Image" alt="event">
                                 <div class="course-hover">
-                                    <a asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id" ><i class="fa fa-link"></i></a>
+                                    <a asp-controller="event" asp-action="eventdetail" asp-route-id="@item.Id"><i class="fa fa-link"></i></a>
                                 </div>
                             </a>
                             <div class="event-date">
-                               @Html.Raw(item.EventDate)
+                                @Html.Raw(item.EventDate)
                             </div>
                         </div>
                         <div class="event-content text-left">
@@ -39,7 +54,7 @@
 
 
         </div>
-</div>
+    </div>
 
 
 

@@ -13,6 +13,8 @@ namespace EduHome.ViewModels.Home
         public IEnumerable<NoticeRight> NoticeRights { get; set; }
         public IEnumerable<Choose> Chooses { get; set; }
         public IEnumerable<Testimonial> Testimonials { get; set; }
+        public IEnumerable<Blog> Blogs { get; set; }
+        public IEnumerable<Course> Courses { get; set; }
         
        
     }

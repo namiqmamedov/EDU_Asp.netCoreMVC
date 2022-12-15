@@ -68,8 +68,15 @@ using EduHome.ViewModels.Events;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Courses;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1f9cea2ec176f08263747e485cce9fcaf282912", @"/Views/Shared/Components/ContactContent/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4201ec7d7b04104ec6b4fe03d5ffdb5257123350", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"772b33702e1aff5bb28696d60be52bca44a1ae88", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_ContactContent_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ContactContent>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString("contact"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -107,7 +114,7 @@ using EduHome.ViewModels.Events;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"contact-icon\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f1f9cea2ec176f08263747e485cce9fcaf2829125002", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f1f9cea2ec176f08263747e485cce9fcaf2829125190", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

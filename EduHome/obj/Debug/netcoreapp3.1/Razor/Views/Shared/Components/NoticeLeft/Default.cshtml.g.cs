@@ -68,8 +68,15 @@ using EduHome.ViewModels.Events;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Courses;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"305f8d42e7a74f0b99f3351914190a4b82c6350f", @"/Views/Shared/Components/NoticeLeft/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4201ec7d7b04104ec6b4fe03d5ffdb5257123350", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"772b33702e1aff5bb28696d60be52bca44a1ae88", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_NoticeLeft_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<NoticeLeft>>
     {
         #pragma warning disable 1998

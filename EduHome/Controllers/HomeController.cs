@@ -28,6 +28,8 @@ namespace EduHome.Controllers
                 Testimonials = await _context.Testimonials.Where(t => t.IsDeleted == false).ToListAsync(),
                 NoticeLefts = await _context.NoticeLefts.Where(s => s.IsDeleted == false).ToListAsync(),
                 NoticeRights = await _context.NoticeRights.Where(s => s.IsDeleted == false).ToListAsync(),
+                Blogs = await _context.Blogs.Where(s => s.IsDeleted == false).ToListAsync(),
+                Courses = await _context.Courses.Where(s => s.IsDeleted == false).ToListAsync(),
             };
 
             return View(homeVM);
