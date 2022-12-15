@@ -12,6 +12,7 @@ namespace EduHome.ViewModels.Events
         public IEnumerable<EventCategory> EventCategories { get; set; }
         public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
         public IEnumerable<EventDescription> EventDescriptions { get; set; }
+        public IEnumerable<EventTag> EventTags { get; set; }
         public IEnumerable<Blog> Blogs { get; set; }
     }
 }

@@ -1,7 +1,11 @@
 ﻿@model EventDetailVM
 
+@{
+    int counter = 0;
+}
 
 @await Component.InvokeAsync("Header", Model)
+
 
 <div class="event-details-area blog-area pt-150 pb-140">
     <div class="container">
@@ -24,27 +28,27 @@
                         {
                             <p>@description.SimpleDescription</p>
                         }
-                            <div class="speakers-area fix">
-                                <h4>speakers</h4>
-                                @foreach (EventSpeaker speaker in Model.Event.EventSpeakers)
-                                {
-                                    <div class="single-speaker">
-                                        <div style="width: 100%;" class="speaker-img">
-                                            <img style="width: 32%;" src="~/assets/img/teacher/@speaker.Teacher.Image" alt="speaker">
-                                        </div>
-                                        <div style="display: flex;position:relative;left:-67%;" class="speaker-name">
-                                            <div class="spk-name">
-                                                <h5 style="min-width:155px;">@speaker.Teacher.Fullname</h5>
-                                                <p>@speaker.Teacher.Rank </p>
-                                            </div>
-
-                                        </div>
+                        <div class="speakers-area fix">
+                            <h4>speakers</h4>
+                            @foreach (EventSpeaker speaker in Model.Event.EventSpeakers)
+                            {
+                                <div class="single-speaker">
+                                    <div style="width: 100%;" class="speaker-img">
+                                        <img style="width: 32%;" src="~/assets/img/teacher/@speaker.Teacher.Image" alt="speaker">
                                     </div>
-                                }
+                                    <div style="display: flex;position:relative;left:-67%;" class="speaker-name">
+                                        <div class="spk-name">
+                                            <h5 style="min-width:155px;">@speaker.Teacher.Fullname</h5>
+                                            <p>@speaker.Teacher.Rank </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
 
 
-                            </div>
                         </div>
+                    </div>
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
                         <p>I must explain to you how all this a mistaken idea of ncing great explorer of the rut<br> the is lder of human happinescias unde omnis iste natus error sit volptatem </p>
@@ -84,17 +88,23 @@
                             </form>
                         </div>
                     </div>
-                    <div class="single-blog-widget mb-50">
-                        <h3>categories</h3>
-                        <ul>
-                            <li><a href="#">CSS Engineering (10)</a></li>
-                            <li><a href="#">Political Science (12)</a></li>
-                            <li><a href="#">Micro Biology (08)</a></li>
-                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
-                            <li><a href="#">Web Design (20)</a></li>
-                            <li><a href="#">PHP (23)</a></li>
-                        </ul>
-                    </div>
+                    @foreach (EventCategory category in Model.Event.EventCategories)
+                    {
+                        <div class="single-blog-widget mb-50">
+                            <h3>categories</h3>
+                            <ul>
+                                <li><a href="#">CSS Engineering (@counter)</a></li>
+                                <li><a href="#">Political Science (@counter)</a></li>
+                                <li><a href="#">Micro Biology (@counter)</a></li>
+                                <li><a href="#">HTML5 &amp; CSS3 (@counter)</a></li>
+                                <li><a href="#">Web Design (@counter)</a></li>
+                                <li><a href="#">PHP (@counter)</a></li>
+
+                            </ul>
+
+                        </div>
+                        counter++;
+                    }
                     <div class="single-blog-widget mb-50">
                         <div class="single-blog-banner">
                             <a href="blog-details.html" id="blog"><img src="~/assets/img/blog/blog-img.jpg" alt="blog"></a>
@@ -125,12 +135,10 @@
                     <div class="single-blog-widget">
                         <h3>tags</h3>
                         <div class="single-tag">
-                            <a href="blog-details.html" class="mr-10 mb-10">course</a>
-                            <a href="blog-details.html" class="mr-10 mb-10">education</a>
-                            <a href="blog-details.html" class="mb-10">teachers</a>
-                            <a href="blog-details.html" class="mr-10">learning</a>
-                            <a href="blog-details.html" class="mr-10">university</a>
-                            <a href="blog-details.html">events</a>
+                            @foreach (EventTag tag in Model.Event.EventTags)
+                            {
+                                <a href="blog-details.html" class="mr-10 mb-10">@tag.Tag.Name</a>
+                            }
                         </div>
                     </div>
                 </div>

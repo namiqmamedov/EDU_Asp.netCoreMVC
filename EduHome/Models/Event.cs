@@ -24,6 +24,7 @@ namespace EduHome.Models
         public IEnumerable<EventCategory> EventCategories { get; set; }
         public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
         public IEnumerable<EventDescription> EventDescriptions { get; set; }
+        public IEnumerable<EventTag> EventTags { get; set; }
 
         [StringLength(255)]
         public string FormName { get; set; }
