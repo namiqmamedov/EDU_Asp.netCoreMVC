@@ -514,3 +514,7 @@ C:\Users\ACER\Desktop\EDU_Asp.netCoreMVC-masterRR\EduHome\obj\Debug\netcoreapp3.
 C:\Users\ACER\Desktop\EDU_Asp.netCoreMVC-masterRR\EduHome\obj\Debug\netcoreapp3.1\EduHome.dll
 C:\Users\ACER\Desktop\EDU_Asp.netCoreMVC-masterRR\EduHome\obj\Debug\netcoreapp3.1\EduHome.pdb
 C:\Users\ACER\Desktop\EDU_Asp.netCoreMVC-masterRR\EduHome\obj\Debug\netcoreapp3.1\EduHome.genruntimeconfig.cache
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Blog\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\SubscribeArea\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Teacher\Default.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Dashboard\Index.cshtml.g.cs

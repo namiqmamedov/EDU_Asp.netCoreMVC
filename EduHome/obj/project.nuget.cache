@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pyjenSNB/lL5BcejOeiHnZ6SvtkoMGpm+GG0wp4iY3mj/YCU/w3kvy8cZCtI/gMbJnCdocBlvVs66iYSalnegQ==",
+  "dgSpecHash": "jyn8tcE5PWtqoXssX9W59G4K9wcibI5bAsATDpwUIziSXDJGX1AhuwREQg2y3Y1RxjM1nNxLO3ZLq6yx+6evlg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\Desktop\\EDU_Asp.netCoreMVC-masterRR\\EduHome\\EduHome.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\source\\repos\\C#\\EduHome\\EduHome\\EduHome.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
