@@ -24,7 +24,6 @@ namespace EduHome.Models
 
 
         public IEnumerable<BlogTag> BlogTags { get; set; }
-        public IEnumerable<BlogCategory> BlogCategories { get; set; }
         public IEnumerable<BlogDescription> BlogDescriptions { get; set; }
 
         [StringLength(255)]

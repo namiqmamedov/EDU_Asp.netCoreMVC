@@ -1,9 +1,5 @@
 ﻿@model EventDetailVM
 
-@{
-    int counter = 1;
-}
-
 
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
@@ -41,25 +37,23 @@
                         </ul>
                         @foreach (EventDescription description in Model.Event.EventDescriptions)
                         {
-                            <p>@description.SimpleDescription</p>
-                        }
+            <p>@description.SimpleDescription</p>}
                         <div class="speakers-area fix">
                             <h4>speakers</h4>
                             @foreach (EventSpeaker speaker in Model.Event.EventSpeakers)
                             {
-                                <div class="single-speaker">
-                                    <div style="width: 100%;" class="speaker-img">
-                                        <img style="width: 32%;" src="~/assets/img/teacher/@speaker.Teacher.Image" alt="speaker">
-                                    </div>
-                                    <div style="display: flex;position:relative;left:-67%;" class="speaker-name">
-                                        <div class="spk-name">
-                                            <h5 style="min-width:155px;">@speaker.Teacher.Fullname</h5>
-                                            <p>@speaker.Teacher.Rank </p>
-                                        </div>
+                <div class="single-speaker">
+                    <div style="width: 100%;" class="speaker-img">
+                        <img style="width: 32%;" src="~/assets/img/teacher/@speaker.Teacher.Image" alt="speaker">
+                    </div>
+                    <div style="display: flex;position:relative;left:-67%;" class="speaker-name">
+                        <div class="spk-name">
+                            <h5 style="min-width:155px;">@speaker.Teacher.Fullname</h5>
+                            <p>@speaker.Teacher.Rank </p>
+                        </div>
 
-                                    </div>
-                                </div>
-                            }
+                    </div>
+                </div>}
 
 
                         </div>
@@ -107,12 +101,10 @@
                     <div class="single-blog-widget mb-50">
                         <h3>categories</h3>
                         <ul>
-                            <li><a href="#">CSS Engineering (@counter)</a></li>
-                            <li><a href="#">Political Science (@counter)</a></li>
-                            <li><a href="#">Micro Biology (@counter)</a></li>
-                            <li><a href="#">HTML5 &amp; CSS3 (@counter)</a></li>
-                            <li><a href="#">Web Design (@counter)</a></li>
-                            <li><a href="#">PHP (@counter)</a></li>
+                            @foreach (Category item in Model.categories)
+                            {
+                            <li><a href="#">@item.Name (@item.Events.Count())</a></li>
+                            }
 
                         </ul>
 
@@ -129,30 +121,27 @@
                         <h3>latest post</h3>
                         @foreach (Blog blog in Model.Blogs.Take(3))
                         {
-                            <div class="single-post mb-30">
-                                <div class="single-post-img">
-                                    <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">
-                                        <img style="width: 122px; margin-top: 10px;" src="~/assets/img/blog/@blog.Image" alt="post">
-                                        <div class="blog-hover">
-                                            <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-post-content">
-                                    <h4><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">@blog.Title</a></h4>
-                                    <p>By @blog.Name  /   @blog.Date.ToString("MMMe d, yyyy")</p>
-                                </div>
-                            </div>
-
-                        }
+            <div class="single-post mb-30">
+                <div class="single-post-img">
+                    <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">
+                        <img style="width: 122px; margin-top: 10px;" src="~/assets/img/blog/@blog.Image" alt="post">
+                        <div class="blog-hover">
+                            <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
+                        </div>
+                    </a>
+                </div>
+                <div class="single-post-content">
+                    <h4><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">@blog.Title</a></h4>
+                    <p>By @blog.Name  /   @blog.Date.ToString("MMMe d, yyyy")</p>
+                </div>
+            </div>}
                     </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>
                         <div class="single-tag">
                             @foreach (EventTag tag in Model.Event.EventTags)
                             {
-                                <a href="blog-details.html" class="mr-10 mb-10">@tag.Tag.Name</a>
-                            }
+                <a href="blog-details.html" class="mr-10 mb-10">@tag.Tag.Name</a>}
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,6 @@ namespace EduHome.ViewModels.Blogs
     public class BlogVM
     {
         public IEnumerable<Blog> Blogs { get; set; }
-        public IEnumerable<BlogCategory> BlogCategories { get; set; }
         public IEnumerable<BlogDescription> BlogDescriptions { get; set; }
         public IEnumerable<BlogTag> BlogTags { get; set; }
 

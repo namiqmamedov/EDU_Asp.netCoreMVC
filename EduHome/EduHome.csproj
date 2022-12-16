@@ -67,6 +67,12 @@
     <Compile Remove="Migrations\20221215134003_UpdatedTeacherTableChangeRelationOneToMany.Designer.cs" />
     <Compile Remove="Migrations\20221215134334_UpdatedTeacherTableChangeRelationOneToMany.cs" />
     <Compile Remove="Migrations\20221215134334_UpdatedTeacherTableChangeRelationOneToMany.Designer.cs" />
+    <Compile Remove="Migrations\20221216021005_RemoveCourseDetailsTable.cs" />
+    <Compile Remove="Migrations\20221216021005_RemoveCourseDetailsTable.Designer.cs" />
+    <Compile Remove="Migrations\20221216021802_RemovedBlogCategoriesTable.cs" />
+    <Compile Remove="Migrations\20221216021802_RemovedBlogCategoriesTable.Designer.cs" />
+    <Compile Remove="Migrations\20221216025755_UpdatedEventTableAddedCategoryProperty.cs" />
+    <Compile Remove="Migrations\20221216025755_UpdatedEventTableAddedCategoryProperty.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

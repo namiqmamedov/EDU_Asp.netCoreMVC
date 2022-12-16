@@ -8481,11 +8481,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ACER\\source\\repos\\C#\\EduHome\\EduHome\\EduHome.csproj",
+      "projectUniqueName": "C:\\Users\\ACER\\Desktop\\EDU_Asp.netCoreMVC-masterRR\\EduHome\\EduHome.csproj",
       "projectName": "EduHome",
-      "projectPath": "C:\\Users\\ACER\\source\\repos\\C#\\EduHome\\EduHome\\EduHome.csproj",
+      "projectPath": "C:\\Users\\ACER\\Desktop\\EDU_Asp.netCoreMVC-masterRR\\EduHome\\EduHome.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ACER\\source\\repos\\C#\\EduHome\\EduHome\\obj\\",
+      "outputPath": "C:\\Users\\ACER\\Desktop\\EDU_Asp.netCoreMVC-masterRR\\EduHome\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
