@@ -55,6 +55,11 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(teacher);
             }
 
+            //if (await _context.Teachers.AnyAsync(t=>t.IsDeleted == false && t.Fullname))
+            //{
+
+            //}
+
             if (teacher.File == null)
             {
                 ModelState.AddModelError("File", "File is required");
@@ -75,6 +80,7 @@ namespace EduHome.Areas.Manage.Controllers
             teacher.Image = teacher.File.CreateImage(_env, "assets", "images");
 
 
+            teacher.Image = teacher.Image;
             teacher.IsDeleted = false;
             teacher.CreatedAt = DateTime.UtcNow;
             teacher.CreatedBy = "System";
@@ -145,15 +151,16 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(teacher);
             }
 
-            if (teacher.Image != null)
-            {
-                existedTeacher.Image = teacher.File.CreateImage(_env, "assets", "images");
-            }
+            //if (teacher.Image!= null)
+            //{
+            //    teacher.Image = teacher.File.CreateImage(_env, "assets", "images");
+            //}
+            //else
+            //{
+            //    existedTeacher.Image = teacher.Image;
+            //}
 
-            else
-            {
-                existedTeacher.Image = null;
-            }
+
 
             existedTeacher.Fullname = teacher.Fullname;
             existedTeacher.UpdatedAt = DateTime.UtcNow;
@@ -165,5 +172,7 @@ namespace EduHome.Areas.Manage.Controllers
             return RedirectToAction("Index");
 
         }
+
+
     }
 }
