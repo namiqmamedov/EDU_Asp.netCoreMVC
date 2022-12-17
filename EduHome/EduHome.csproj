@@ -73,8 +73,32 @@
     <Compile Remove="Migrations\20221216021802_RemovedBlogCategoriesTable.Designer.cs" />
     <Compile Remove="Migrations\20221216025755_UpdatedEventTableAddedCategoryProperty.cs" />
     <Compile Remove="Migrations\20221216025755_UpdatedEventTableAddedCategoryProperty.Designer.cs" />
+    <Compile Remove="Migrations\20221216031300_UpdatedEventTable.cs" />
+    <Compile Remove="Migrations\20221216031300_UpdatedEventTable.Designer.cs" />
     <Compile Remove="Migrations\20221217010614_add.cs" />
     <Compile Remove="Migrations\20221217010614_add.Designer.cs" />
+    <Compile Remove="Migrations\20221217164008_UpdatedBlogTableRelatedCategory.cs" />
+    <Compile Remove="Migrations\20221217164008_UpdatedBlogTableRelatedCategory.Designer.cs" />
+    <Compile Remove="Migrations\20221217164224_asd.cs" />
+    <Compile Remove="Migrations\20221217164224_asd.Designer.cs" />
+    <Compile Remove="Migrations\20221217164313_UpdatedBlogTableRelatedCategory.cs" />
+    <Compile Remove="Migrations\20221217164313_UpdatedBlogTableRelatedCategory.Designer.cs" />
+    <Compile Remove="Migrations\20221217164511_UpdatedBlogTableRelatedCategory.cs" />
+    <Compile Remove="Migrations\20221217164511_UpdatedBlogTableRelatedCategory.Designer.cs" />
+    <Compile Remove="Migrations\20221217164641_asd.cs" />
+    <Compile Remove="Migrations\20221217164641_asd.Designer.cs" />
+    <Compile Remove="Migrations\20221217165021_CreateDetailTitle.cs" />
+    <Compile Remove="Migrations\20221217165021_CreateDetailTitle.Designer.cs" />
+    <Compile Remove="Migrations\20221217170100_CreatedEventTable.cs" />
+    <Compile Remove="Migrations\20221217170100_CreatedEventTable.Designer.cs" />
+    <Compile Remove="Migrations\20221217170334_CreatedEventTableadad.cs" />
+    <Compile Remove="Migrations\20221217170334_CreatedEventTableadad.Designer.cs" />
+    <Compile Remove="Migrations\20221217170432_sida.cs" />
+    <Compile Remove="Migrations\20221217170432_sida.Designer.cs" />
+    <Compile Remove="Migrations\20221217170648_test.cs" />
+    <Compile Remove="Migrations\20221217170648_test.Designer.cs" />
+    <Compile Remove="Migrations\20221217171050_UpdateCourseDetailTableAgain.cs" />
+    <Compile Remove="Migrations\20221217171050_UpdateCourseDetailTableAgain.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

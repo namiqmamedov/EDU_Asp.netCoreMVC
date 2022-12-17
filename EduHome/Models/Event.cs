@@ -26,8 +26,10 @@ namespace EduHome.Models
         public IEnumerable<EventTag> EventTags { get; set; }
 
         public Category Category { get; set; }
+
         public int CategoryId { get; set; }
 
+        [StringLength(255)]
         public string FormName { get; set; }
         [StringLength(255)]
         public string Email { get; set; }

@@ -23,6 +23,7 @@
                         <th>Nº</th>
                         <th>Image</th>
                         <th>Title</th>
+                        <th>Tag</th>
                         <th>Created At</th>
                         <th>Setting</th>
                     </tr>
@@ -33,9 +34,10 @@
                     <tr>
                         <td>@counter</td>
                         <td>
-                            <img width="100px;" src="~/assets/img/blog/@blog.Image" alt="Alternate Text" />
+                            <img width="100" src="~/assets/img/blog/@blog.Image" alt="Alternate Text" />
                         </td>
-                        <td>@blog.Title </td>
+                        <td>@blog.Title</td>
+                        <td>@(blog.BlogTags != null && blog.BlogTags.Count() > 0 ? String.Join(",", blog.BlogTags.Select(b=>b.Tag.Name)) : "")</td>
                         <td>@blog.CreatedAt?.ToString("d, MMM yyyy")</td>
                         <td>
                             <div style="word-spacing: 16px;" class="buttons">

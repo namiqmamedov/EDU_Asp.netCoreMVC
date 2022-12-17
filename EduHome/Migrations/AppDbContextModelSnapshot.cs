@@ -725,7 +725,8 @@ namespace EduHome.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("FormName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(255)")

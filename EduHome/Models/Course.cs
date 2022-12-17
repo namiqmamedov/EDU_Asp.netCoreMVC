@@ -47,6 +47,7 @@ namespace EduHome.Models
         public Category Category { get; set; }
         public int CategoryId { get; set; }
         public IEnumerable<CourseTag> CourseTags { get; set; }
+        public IEnumerable<CourseDetailTitle> CourseDetailTitles { get; set; }
 
         [StringLength(255)]
         public string FormName { get; set; }
