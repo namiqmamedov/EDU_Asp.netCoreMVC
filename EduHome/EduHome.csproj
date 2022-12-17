@@ -73,6 +73,8 @@
     <Compile Remove="Migrations\20221216021802_RemovedBlogCategoriesTable.Designer.cs" />
     <Compile Remove="Migrations\20221216025755_UpdatedEventTableAddedCategoryProperty.cs" />
     <Compile Remove="Migrations\20221216025755_UpdatedEventTableAddedCategoryProperty.Designer.cs" />
+    <Compile Remove="Migrations\20221217010614_add.cs" />
+    <Compile Remove="Migrations\20221217010614_add.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -40,7 +40,7 @@
                     <td>@teacher.CreatedAt?.ToString("d, MMM yyyy")</td>
                     <td>
                         <div style="word-spacing: 16px;" class="buttons">
-                            <a style="width: 21.8%;" class="btn btn-warning">Update</a>
+                            <a style="width: 21.8%;" class="btn btn-warning" asp-area="manage" asp-action="update" asp-route-id="@teacher.Id">Update</a>
                             <a style="width: 21.8%;" class="btn btn-danger">Delete</a>
                             <a style="width: 21.8%;" class="btn btn-primary">Detail</a>
                         </div>
