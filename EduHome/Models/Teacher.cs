@@ -11,7 +11,7 @@ namespace EduHome.Models
     public class Teacher : BaseEntity
     {
         [StringLength(255)]
-        [Required]
+        //[Required]
         public string Fullname { get; set; }
         [StringLength(255)]
 

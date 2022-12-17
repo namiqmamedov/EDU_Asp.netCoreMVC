@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -43,7 +44,28 @@ namespace EduHome.Areas.Manage.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Id not a null");
+            }
+
+            Teacher teacher = await _context.Teachers
+                .Include(sk => sk.TeacherSkills)
+                .ThenInclude(sk => sk.Skill)
+                .FirstOrDefaultAsync(t => t.IsDeleted == false && t.Id == id);
+
+            if (teacher == null)
+            {
+                return NotFound("Id not correct");
+            }
+
+            return View(teacher);
+        }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Teacher teacher)
         {
             ViewBag.TeacherSkills = await _context.TeacherSkills
@@ -55,11 +77,7 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(teacher);
             }
 
-            //if (await _context.Teachers.AnyAsync(t=>t.IsDeleted == false && t.Fullname))
-            //{
-
-            //}
-
+            
             if (teacher.File == null)
             {
                 ModelState.AddModelError("File", "File is required");
@@ -68,19 +86,20 @@ namespace EduHome.Areas.Manage.Controllers
 
             if (teacher.File.ContentType != "image/jpeg")
             {
-                ModelState.AddModelError("File", ".jpg or .jpeg");
+                ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
                 return View(teacher);
             }
-            if (teacher.File.Length > 24096)
+            if (teacher.File.Length > 45096)
             {
-                ModelState.AddModelError("File", "Maximum size is 24096 kb");
+                ModelState.AddModelError("File", "Maximum size is 45096 kb");
                 return View(teacher);
             }
 
-            teacher.Image = teacher.File.CreateImage(_env, "assets", "images");
+             teacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
 
 
-            teacher.Image = teacher.Image;
+
+            //teacher.Image = null;
             teacher.IsDeleted = false;
             teacher.CreatedAt = DateTime.UtcNow;
             teacher.CreatedBy = "System";
@@ -128,6 +147,12 @@ namespace EduHome.Areas.Manage.Controllers
                 return BadRequest("ID cannot be empty!");
             }
 
+            if (teacher.Id != id)
+            {
+                return BadRequest("ID cannot be empty!");
+            }
+
+
             Teacher existedTeacher = await _context.Teachers.FirstOrDefaultAsync(t => t.IsDeleted == false && t.Id == id);
 
             if (teacher == null)
@@ -135,34 +160,61 @@ namespace EduHome.Areas.Manage.Controllers
                 return NotFound("The entered ID is wrong");
             }
 
-            if (teacher.Id != id)
-            {
-                return BadRequest("ID cannot be empty!");
-            }
-
-            if (teacher.File.ContentType != "image/jpeg")
-            {
-                ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
-                return View(teacher);
-            }
-            if (teacher.File.Length > 24096)
-            {
-                ModelState.AddModelError("File", "Maximum size is 24096 kb");
-                return View(teacher);
-            }
-
-            //if (teacher.Image!= null)
+            //if (existedTeacher.Image == null && teacher.File == null)
             //{
-            //    teacher.Image = teacher.File.CreateImage(_env, "assets", "images");
-            //}
-            //else
-            //{
-            //    existedTeacher.Image = teacher.Image;
+            //    ModelState.AddModelError("File", "File extension must be required!");
+            //    return View(teacher);
             //}
 
 
+            if (existedTeacher.File != null)
+            {
+                if (teacher.File.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
+                    return View(teacher);
+                }
+                if (teacher.File.Length > 45096)
+                {
+                    ModelState.AddModelError("File", "Maximum size is 45 kb");
+                    return View(teacher);
+                }
 
-            existedTeacher.Fullname = teacher.Fullname;
+                //string path = Path.Combine(_env.WebRootPath + @"\assets\img\teacher");
+
+                //if (System.IO.File.Exists(Path.Combine(path, existedTeacher.Image)))
+                //{
+                //    System.IO.File.Delete(Path.Combine(path, existedTeacher.Image));
+                //}
+
+                //string fileName = Guid.NewGuid().ToString() + "-" + teacher.File.FileName;
+
+                //string fullpath = Path.Combine(path, fileName);
+
+                //using (FileStream fileStream = new FileStream(fullpath, FileMode.Create))
+                //{
+                //    await teacher.File.CopyToAsync(fileStream);
+                //}
+
+                //existedTeacher.Image = fileName;
+
+                teacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
+
+                existedTeacher.Image = null;
+            }
+
+            existedTeacher.Fullname = teacher.Fullname.Trim();
+            existedTeacher.Rank = teacher.Rank;
+            existedTeacher.Description = teacher.Description;
+            existedTeacher.Experince = teacher.Experince;
+            existedTeacher.Hobby = teacher.Hobby;
+            existedTeacher.Faculty = teacher.Faculty;
+            existedTeacher.Number = teacher.Number;
+            existedTeacher.Email = teacher.Email;
+            existedTeacher.FacebookURL = teacher.FacebookURL;
+            existedTeacher.PinterestURL = teacher.PinterestURL;
+            existedTeacher.VimeoURL = teacher.VimeoURL;
+            existedTeacher.TwitterURL= teacher.TwitterURL;
             existedTeacher.UpdatedAt = DateTime.UtcNow;
             existedTeacher.UpdatedBy= "System";
             
@@ -173,6 +225,33 @@ namespace EduHome.Areas.Manage.Controllers
 
         }
 
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("ID not a null");
+            }
+
+            Teacher teachers = await _context.Teachers
+                .FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+
+            if (teachers == null)
+            {
+                return NotFound("Id not correct");
+            }
+
+            teachers.IsDeleted = true;
+            teachers.DeletedBy = "";
+            teachers.DeletedAt = DateTime.UtcNow.AddHours(+4);
+
+
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+
+        }
 
     }
 }

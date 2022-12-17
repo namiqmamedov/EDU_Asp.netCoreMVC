@@ -21,8 +21,8 @@
             <thead>
                 <tr>
                     <th>Nº</th>
-                    <th>Fullname</th>
                     <th>Image</th>
+                    <th>Fullname</th>
                     <th>Rank</th>
                     <th>Created At</th>                 
                 </tr>
@@ -41,8 +41,8 @@
                     <td>
                         <div style="word-spacing: 16px;" class="buttons">
                             <a style="width: 21.8%;" class="btn btn-warning" asp-area="manage" asp-action="update" asp-route-id="@teacher.Id">Update</a>
-                            <a style="width: 21.8%;" class="btn btn-danger">Delete</a>
-                            <a style="width: 21.8%;" class="btn btn-primary">Detail</a>
+                            <a style="width: 21.8%;" class="btn btn-danger" asp-area="manage" asp-action="delete" asp-route-id="@teacher.Id">Delete</a>
+                            <a style="width: 21.8%;" class="btn btn-primary" asp-area="manage" asp-action="detail" asp-route-id="@teacher.Id">Detail</a>
                         </div>
 
                     </td>

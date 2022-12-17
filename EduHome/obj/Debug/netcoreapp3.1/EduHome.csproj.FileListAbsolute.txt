@@ -526,3 +526,5 @@ C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Area
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Teacher\Create.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shared\_ValidationPartial.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Teacher\Update.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Teacher\Detail.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Index.cshtml.g.cs

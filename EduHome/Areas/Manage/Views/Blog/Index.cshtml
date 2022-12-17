@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Blog>
+
+    @{
+    ViewData["Title"] = "Index";
+    int counter = 1;
+    }
+
+
+    <div class="row justify-content-between mt-5">
+        <div class="col-lg-2">
+            <h1 style="margin-left: 44px;" class="h3 mb-4 text-gray-800">Teachers Page</h1>
+        </div>
+        <div class="col-lg-1">
+            <a style="margin-left: -2.3rem;" asp-area="manage" asp-controller="blog" asp-action="create" class="btn btn-primary">Create</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table @*style="width: 93%; margin-left: auto; margin-right: auto;"*@ class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nº</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Created At</th>
+                        <th>Setting</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Blog blog in Model)
+                {
+                    <tr>
+                        <td>@counter</td>
+                        <td>
+                            <img width="100px;" src="~/assets/img/blog/@blog.Image" alt="Alternate Text" />
+                        </td>
+                        <td>@blog.Title </td>
+                        <td>@blog.CreatedAt?.ToString("d, MMM yyyy")</td>
+                        <td>
+                            <div style="word-spacing: 16px;" class="buttons">
+                                <a style="width: 21.8%;" class="btn btn-warning" asp-area="manage" asp-action="update" asp-route-id="@blog.Id">Update</a>
+                                <a style="width: 21.8%;" class="btn btn-danger"asp-area="manage" asp-action="delete" asp-route-id="@blog.Id">Delete</a>
+                                <a style="width: 21.8%;" class="btn btn-primary" asp-area="manage" asp-action="detail" asp-route-id="@blog.Id">Detail</a>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    counter++;
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
