@@ -10,6 +10,7 @@ namespace EduHome.ViewModels.Blogs
     {
         public Blog Blog { get; set; }
         public List<Blog> Blogs { get; set; }
+
         public List<Category> categories { get; set; }
     }
 }

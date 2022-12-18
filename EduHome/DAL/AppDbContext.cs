@@ -27,20 +27,27 @@ namespace EduHome.DAL
         public DbSet<ContactContent> ContactContents { get; set; }
         public DbSet<ContactForm> ContactForms { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+        //public DbSet<TeacherHobby> TeacherHobbies { get; set; }
         public DbSet<TeacherSkill> TeacherSkills { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        //public DbSet<Hobby> Hobbies { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<BlogTag> BlogTags { get; set; }
         public DbSet<Category> Categories { get; set; }
+        //public DbSet<BlogCategory> BlogCategories { get; set; }
         public DbSet<Description> Descriptions { get; set; }
         public DbSet<BlogDescription> BlogDescriptions { get; set; }
         public DbSet<Event> Events { get; set; }
+        //public DbSet<EventCategory> EventCategories { get; set; }
         public DbSet<EventSpeaker> EventSpeakers { get; set; }
         public DbSet<EventDescription> EventDescriptions { get; set; }
         public DbSet<EventTag> EventTags { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseTag> CourseTags { get; set; }
+        //public DbSet<CourseCategory> CourseCategories { get; set; }
+        public DbSet<DetailTitle> DetailTitles { get; set; }
+        //public DbSet<CourseDetailTitle> CourseDetailTitles { get; set; }
         public DbSet<SubscribeArea> SubscribeAreas { get; set; }
        
 

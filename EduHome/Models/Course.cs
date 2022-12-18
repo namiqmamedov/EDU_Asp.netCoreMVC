@@ -16,8 +16,10 @@ namespace EduHome.Models
         [StringLength(255)]
         public string Image { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(255)]
         public string Description { get; set; }
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
 
         [StringLength(1000)]
         public string TitleDesc { get; set; }
@@ -46,9 +48,9 @@ namespace EduHome.Models
         [StringLength(255)]
         public string FEE { get; set; }
 
-        public Category Category { get; set; }
-        public int CategoryId { get; set; }
         public IEnumerable<CourseTag> CourseTags { get; set; }
+        //public IEnumerable<CourseDetailTitle> CourseDetailTitles { get; set; }
+
 
         [StringLength(255)]
         public string FormName { get; set; }
@@ -61,7 +63,7 @@ namespace EduHome.Models
 
         [NotMapped]
         public IFormFile File { get; set; }
-    
+
         [NotMapped]
         [MaxLength(5)]
         public IEnumerable<int> TagIds { get; set; }

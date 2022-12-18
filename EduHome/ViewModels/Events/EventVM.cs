@@ -9,7 +9,7 @@ namespace EduHome.ViewModels.Events
     public class EventVM
     {
         public IEnumerable<Event> Events { get; set; }
-        public IEnumerable<EventCategory> EventCategories { get; set; }
+        //public IEnumerable<EventCategory> EventCategories { get; set; }
         public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
         public IEnumerable<EventDescription> EventDescriptions { get; set; }
         public IEnumerable<EventTag> EventTags { get; set; }

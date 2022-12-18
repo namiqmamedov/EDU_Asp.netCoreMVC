@@ -12,6 +12,8 @@ namespace EduHome.ViewModels.Events
         public List<Event> Events { get; set; }
         public Blog Blog { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Course> Courses { get; set; }
+
         public List<Category> categories { get; set; }
     }
 }

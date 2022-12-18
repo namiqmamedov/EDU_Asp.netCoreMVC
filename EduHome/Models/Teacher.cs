@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,7 +10,6 @@ namespace EduHome.Models
     public class Teacher : BaseEntity
     {
         [StringLength(255)]
-        //[Required]
         public string Fullname { get; set; }
         [StringLength(255)]
 
@@ -25,7 +23,6 @@ namespace EduHome.Models
         [StringLength(255)]
         public string Faculty { get; set; }
         [StringLength(255)]
-        [EmailAddress]
         public string Email { get; set; }
         [StringLength(55)]
         public string Number { get; set; }
@@ -44,11 +41,11 @@ namespace EduHome.Models
 
         [StringLength(255)]
         public string Hobby { get; set; }
+        //public IEnumerable<TeacherHobby> TeacherHobbies { get; set; }
         public IEnumerable<TeacherSkill> TeacherSkills { get; set; }
 
+
         [NotMapped]
-        public IFormFile File { get; set; }
-
-
+        public IEnumerable<int> HobbyIds { get; set; }
     }
 }

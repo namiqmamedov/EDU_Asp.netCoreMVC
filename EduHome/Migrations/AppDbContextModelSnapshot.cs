@@ -156,6 +156,9 @@ namespace EduHome.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Comment")
                         .HasColumnType("int")
                         .HasMaxLength(255);
@@ -214,6 +217,8 @@ namespace EduHome.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Blogs");
                 });
@@ -559,8 +564,8 @@ namespace EduHome.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(1000)")
-                        .HasMaxLength(1000);
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(255)")
@@ -690,6 +695,43 @@ namespace EduHome.Migrations
                     b.ToTable("Descriptions");
                 });
 
+            modelBuilder.Entity("EduHome.Models.DetailTitle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DetailTitles");
+                });
+
             modelBuilder.Entity("EduHome.Models.Event", b =>
                 {
                     b.Property<int>("Id")
@@ -697,7 +739,7 @@ namespace EduHome.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedAt")
@@ -1352,6 +1394,13 @@ namespace EduHome.Migrations
                     b.ToTable("Testimonials");
                 });
 
+            modelBuilder.Entity("EduHome.Models.Blog", b =>
+                {
+                    b.HasOne("EduHome.Models.Category", null)
+                        .WithMany("Blogs")
+                        .HasForeignKey("CategoryId");
+                });
+
             modelBuilder.Entity("EduHome.Models.BlogDescription", b =>
                 {
                     b.HasOne("EduHome.Models.Blog", "Blog")
@@ -1402,11 +1451,9 @@ namespace EduHome.Migrations
 
             modelBuilder.Entity("EduHome.Models.Event", b =>
                 {
-                    b.HasOne("EduHome.Models.Category", "Category")
+                    b.HasOne("EduHome.Models.Category", null)
                         .WithMany("Events")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
                 });
 
             modelBuilder.Entity("EduHome.Models.EventDescription", b =>

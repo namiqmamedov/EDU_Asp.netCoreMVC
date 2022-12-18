@@ -1,8 +1,5 @@
 ﻿@model BlogDetailVM
 
-@{ int counter = 1; }
-
-
 
 <div class="blog-details-area pt-150 pb-140">
     <div class="container">
@@ -58,18 +55,16 @@
                             </form>
                         </div>
                     </div>
-
-                    <div class="single-blog-widget mb-50">
+                    <div class="single-blog-widget mb-50">  
                         <h3>categories</h3>
                         <ul>
                             @foreach (Category item in Model.categories)
                             {
-                                <li><a href="#">@item.Name (@item.Courses.Count())</a></li>
-                            }
+                                <li><a href="#">@item.Name (@item.Courses.Count())</a></li>}
+
                         </ul>
 
                     </div>
-
                     <div class="single-blog-widget mb-47">
                         <div class="single-blog-banner">
                             <a href="blog-details.html" id="blog"><img src="~/assets/img/blog/blog-img.jpg" alt="blog"></a>
@@ -80,20 +75,20 @@
                         <h3>latest post</h3>
                         @foreach (Blog blog in Model.Blogs.Take(3))
                         {
-            <div class="single-post mb-30">
-                <div class="single-post-img">
-                    <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">
-                        <img style="width: 122px; margin-top: 10px;" src="~/assets/img/blog/@blog.Image" alt="post">
-                        <div class="blog-hover">
-                            <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
-                        </div>
-                    </a>
-                </div>
-                <div class="single-post-content">
-                    <h4><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">@blog.Title</a></h4>
-                    <p>By @blog.Name  /   @blog.Date.ToString("MMMe d, yyyy")</p>
-                </div>
-            </div>}
+                <div class="single-post mb-30">
+                    <div class="single-post-img">
+                        <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">
+                            <img style="width: 122px; margin-top: 10px;" src="~/assets/img/blog/@blog.Image" alt="post">
+                            <div class="blog-hover">
+                                <a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="single-post-content">
+                        <h4><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">@blog.Title</a></h4>
+                        <p>By @blog.Name  /   @blog.Date.ToString("MMMe d, yyyy")</p>
+                    </div>
+                </div>}
                     </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>
