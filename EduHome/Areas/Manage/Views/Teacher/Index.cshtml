@@ -8,10 +8,10 @@
 
 <div class="row justify-content-between mt-5">
     <div class="col-lg-2">
-        <h1 style="margin-left: 44px;" class="h3 mb-4 text-gray-800">Teachers Page</h1>
+        <h1 style="margin-left: 24px;min-width: 202px;" class="h3 mb-4 text-gray-800">Teachers Page</h1>
     </div>
     <div class="col-lg-1">
-        <a style="margin-left: -2.3rem;" asp-area="manage" asp-controller="teacher" asp-action="create" class="btn btn-primary">Create</a>
+        <a style="margin-left: -6.8rem;" asp-area="manage" asp-controller="teacher" asp-action="create" class="btn btn-primary">Create</a>
     </div>
 </div>
 
@@ -33,7 +33,7 @@
                 <tr>
                     <td>@counter</td>
                     <td>
-                        <img width="100px;" src="~/assets/img/teacher/@teacher.Image" alt="Alternate Text" />
+                        <img width="100" src="~/assets/img/teacher/@teacher.Image" alt="Alternate Text" />
                     </td>
                     <td>@teacher.Fullname </td>
                     <td>@teacher.Rank</td>

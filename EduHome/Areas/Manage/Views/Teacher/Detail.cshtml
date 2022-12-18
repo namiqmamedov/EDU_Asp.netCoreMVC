@@ -49,16 +49,16 @@
                     <div class="row">
                         @foreach (TeacherSkill skill in Model.TeacherSkills)
                         {
-            <div class="col-sm-4">
-                <div class="skill-bar-item">
-                    <span>@skill.Skill.SkillName</span>
-                    <div class="progress">
-                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width:@skill.Progress%" visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
-                            <span style="color: red;" class="text-top">@skill.Number%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>}
+                            <div class="col-sm-4">
+                                <div class="skill-bar-item">
+                                    <span>@skill.Skill.SkillName</span>
+                                    <div class="progress">
+                                        <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width:@skill.Progress%" visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                            <span style="color: red;" class="text-top">@skill.Number%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>}
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 ﻿using EduHome.DAL;
 using EduHome.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,9 +14,11 @@ namespace EduHome.Areas.Manage.Controllers
     public class CourseController : Controller
     {
         private readonly AppDbContext _context;
-        public CourseController(AppDbContext context)
+        private readonly IWebHostEnvironment _env;
+        public CourseController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         public async Task<IActionResult> Index()
@@ -28,7 +31,7 @@ namespace EduHome.Areas.Manage.Controllers
 
             return View(courses);
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -51,17 +54,17 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(course);
             }
 
-            if (!await _context.Categories.AnyAsync(c=>c.IsDeleted == false && c.Id == course.CategoryId))
+            if (!await _context.Categories.AnyAsync(c => c.IsDeleted == false && c.Id == course.CategoryId))
             {
                 ModelState.AddModelError("CategoryId", "Selected category is not correct.");
                 return View(course);
             }
 
-            List <CourseTag> courseTags = new List<CourseTag>();
+            List<CourseTag> courseTags = new List<CourseTag>();
 
             foreach (int tagId in course.TagIds)
             {
-                if (course.TagIds.Where(t=>t == tagId).Count() > 1)
+                if (course.TagIds.Where(t => t == tagId).Count() > 1)
                 {
                     ModelState.AddModelError("TagIds", "You can't use the same tag more than once !");
                     return View(course);
@@ -86,6 +89,7 @@ namespace EduHome.Areas.Manage.Controllers
 
             course.CourseTags = courseTags;
             course.Title = course.Title;
+
 
             await _context.Courses.AddAsync(course);
             await _context.SaveChangesAsync();
@@ -129,7 +133,7 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(course);
             }
 
-            Course existedCourse = await _context.Courses.Include(c=>c.CourseTags).FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+            Course existedCourse = await _context.Courses.Include(c => c.CourseTags).FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
 
             _context.CourseTags.RemoveRange(existedCourse.CourseTags);
 
@@ -166,10 +170,59 @@ namespace EduHome.Areas.Manage.Controllers
             existedCourse.CourseStarts = course.CourseStarts;
 
             await _context.SaveChangesAsync();
-           
+
 
             return RedirectToAction("Index");
 
+        }
+
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("ID not a null");
+            }
+
+            Course course = await _context.Courses
+                .FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+
+            if (course == null)
+            {
+                return NotFound("Id not correct");
+            }
+
+            course.IsDeleted = true;
+            course.DeletedBy = "";
+            course.DeletedAt = DateTime.UtcNow.AddHours(+4);
+
+
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+
+        }
+
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Id not a null");
+            }
+
+
+            Course course = await _context.Courses
+                .Include(c => c.Category)
+                .Include(c => c.CourseTags).ThenInclude(ct => ct.Tag)
+                .FirstOrDefaultAsync(t => t.IsDeleted == false && t.Id == id);
+
+            if (course == null)
+            {
+                return NotFound("Id not correct");
+            }
+
+            return View(course);
         }
     }
 }

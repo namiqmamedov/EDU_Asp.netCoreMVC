@@ -160,11 +160,11 @@ namespace EduHome.Areas.Manage.Controllers
                 return NotFound("The entered ID is wrong");
             }
 
-            //if (existedTeacher.Image == null && teacher.File == null)
-            //{
-            //    ModelState.AddModelError("File", "File extension must be required!");
-            //    return View(teacher);
-            //}
+            if (existedTeacher.Image == null && teacher.File == null)
+            {
+                ModelState.AddModelError("File", "File extension must be required!");
+                return View(teacher);
+            }
 
 
             if (existedTeacher.File != null)
@@ -180,37 +180,17 @@ namespace EduHome.Areas.Manage.Controllers
                     return View(teacher);
                 }
 
-                //string path = Path.Combine(_env.WebRootPath + @"\assets\img\teacher");
-
-                //if (System.IO.File.Exists(Path.Combine(path, existedTeacher.Image)))
-                //{
-                //    System.IO.File.Delete(Path.Combine(path, existedTeacher.Image));
-                //}
-
-                //string fileName = Guid.NewGuid().ToString() + "-" + teacher.File.FileName;
-
-                //string fullpath = Path.Combine(path, fileName);
-
-                //using (FileStream fileStream = new FileStream(fullpath, FileMode.Create))
-                //{
-                //    await teacher.File.CopyToAsync(fileStream);
-                //}
-
-                //existedTeacher.Image = fileName;
 
                 if (existedTeacher.Image != null)
                 {
                     existedTeacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
 
                 }
-                else
-                {
-
-                    existedTeacher.Image = null;
-                }
+                
 
 
             }
+           
 
             existedTeacher.Fullname = teacher.Fullname.Trim();
             existedTeacher.Rank = teacher.Rank;
