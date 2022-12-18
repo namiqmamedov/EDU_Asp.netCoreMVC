@@ -1,4 +1,5 @@
-﻿ using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -44,8 +45,10 @@ namespace EduHome.Models
         //public IEnumerable<TeacherHobby> TeacherHobbies { get; set; }
         public IEnumerable<TeacherSkill> TeacherSkills { get; set; }
 
-
         [NotMapped]
         public IEnumerable<int> HobbyIds { get; set; }
+        [NotMapped]
+        public IFormFile File { get; set; }
+        
     }
 }

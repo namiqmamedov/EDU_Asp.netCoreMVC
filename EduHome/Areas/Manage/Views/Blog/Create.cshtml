@@ -1,0 +1,54 @@
+﻿@model Blog
+
+@{
+    ViewData["Title"] = "Create";
+    
+}
+
+
+<h1 class="text-center">Create Blog</h1>
+<div class="mb-3 d-flex justify-content-center">
+    <form style="width: 850px;" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control">
+            <span asp-validation-for="Title" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Date" class="form-label"></label>
+            <input asp-for="Date" class="form-control">
+            <span asp-validation-for="Date" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="File"></label>
+            <input asp-for="File" type="file" accept="image/jpeg" class="form-control">
+            <span asp-validation-for="File " class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BlogDescriptions.First().SimpleDescription" class="form-label"></label>
+            <input asp-for="BlogDescriptions.First().SimpleDescription" class="form-control">
+            <span asp-validation-for="BlogDescriptions.First().SimpleDescription" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BlogDescriptions.First().QuoteDescription" class="form-label"></label>
+            <input asp-for="BlogDescriptions.First().QuoteDescription" class="form-control">
+            <span asp-validation-for="BlogDescriptions.First().QuoteDescription" class="text text-danger"></span>
+        </div>
+        @*<div id="parentList" class="form-group">
+            <label>Tag</label>
+            <select asp-for="TagIds" class="form-control" asp-items="selectListTagsItems">
+            </select>
+            <span asp-validation-for="TagIds" class="text text-danger"></span>
+        </div>*@
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+@section script{
+    @await Html.PartialAsync("_ValidationPartial")
+}

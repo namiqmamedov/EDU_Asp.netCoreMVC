@@ -1,8 +1,10 @@
 using EduHome.DAL;
+using EduHome.Models;
 using EduHome.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,7 +38,20 @@ namespace EduHome
 
             services.AddScoped<LayoutService>();
 
-            //services.AddHttpContextAccessor();
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+
+
+                options.User.RequireUniqueEmail = true;
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15);
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
         }
 
@@ -52,12 +67,14 @@ namespace EduHome
 
             app.UseStaticFiles();
 
-            //app.UseAuthentication();
-
-            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                     name: "areas",
+                     pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+                   );
+
                 endpoints.MapControllerRoute(
                         name: "default",
                         pattern:"{controller=Home}/{action=Index}/{id?}"
