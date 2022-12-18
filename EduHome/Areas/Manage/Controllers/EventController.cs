@@ -142,7 +142,7 @@ namespace EduHome.Areas.Manage.Controllers
             events.TagIds = await _context.EventTags.Where(et => et.EventId == id)
            .Select(t => t.TagId).ToListAsync();
 
-            ViewBag.Category = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
+            ViewBag.Categories = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
             ViewBag.Tags = await _context.Tags.Where(t => t.IsDeleted == false).ToListAsync();
             ViewBag.Speakers = await _context.Teachers.Where(t => t.IsDeleted == false).ToListAsync();
 
@@ -173,7 +173,7 @@ namespace EduHome.Areas.Manage.Controllers
                 return BadRequest("ID cannot be empty!");
             }
 
-            Event existedEvent = await _context.Events.FirstOrDefaultAsync(e => e.IsDeleted == false && e.Id == id);
+            //Event existedEvent = await _context.Events.FirstOrDefaultAsync(e => e.IsDeleted == false && e.Id == id);
 
 
 
@@ -211,7 +211,7 @@ namespace EduHome.Areas.Manage.Controllers
             }
 
 
-            existedEvent.Title = events.Title;
+            //existedEvent.Title = events.Title;
             events.IsDeleted = false;
             events.CreatedAt = DateTime.Now;
             events.CreatedBy = "System";

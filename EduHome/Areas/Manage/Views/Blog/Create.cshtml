@@ -1,17 +1,12 @@
-﻿@model Event
+﻿@model Blog
 
 @{
-    ViewData["Title"] = "Update";
-    IEnumerable<Category> categories = ViewBag.Categories;
-    IEnumerable<Tag> tags = ViewBag.Tags;
-
-    SelectList selectListCategoriesItems = new SelectList(categories, nameof(Category.Id), nameof(Category.Name));
-    SelectList selectListTagsItems = new SelectList(tags, nameof(Tag.Id), nameof(Tag.Name));
-
+    ViewData["Title"] = "Create";
+    
 }
 
 
-<h1>Update Event</h1>
+<h1 class="text-center">Create Blog</h1>
 <div class="mb-3 d-flex justify-content-center">
     <form style="width: 850px;" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -28,30 +23,29 @@
             <label asp-for="File"></label>
             <input asp-for="File" type="file" accept="image/jpeg" class="form-control">
             <span asp-validation-for="File " class="text text-danger"></span>
-
         </div>
         <div class="form-group">
-            <label asp-for="EventDate" class="form-label"></label>
-            <input asp-for="EventDate" class="form-control">
-            <span asp-validation-for="EventDate" class="text text-danger"></span>
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Venue" class="form-label"></label>
-            <input asp-for="Venue" class="form-control">
-            <span asp-validation-for="Venue" class="text text-danger"></span>
+            <label asp-for="BlogDescriptions.First().SimpleDescription" class="form-label"></label>
+            <input asp-for="BlogDescriptions.First().SimpleDescription" class="form-control">
+            <span asp-validation-for="BlogDescriptions.First().SimpleDescription" class="text text-danger"></span>
         </div>
-        <div id="parentList" class="form-group">
-            <label>Category</label>
-            <select asp-for="CategoryId" class="form-control" asp-items="selectListCategoriesItems">
-            </select>
+        <div class="form-group">
+            <label asp-for="BlogDescriptions.First().QuoteDescription" class="form-label"></label>
+            <input asp-for="BlogDescriptions.First().QuoteDescription" class="form-control">
+            <span asp-validation-for="BlogDescriptions.First().QuoteDescription" class="text text-danger"></span>
         </div>
-        <div id="parentList" class="form-group">
+        @*<div id="parentList" class="form-group">
             <label>Tag</label>
             <select asp-for="TagIds" class="form-control" asp-items="selectListTagsItems">
             </select>
             <span asp-validation-for="TagIds" class="text text-danger"></span>
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        </div>*@
+        <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
 

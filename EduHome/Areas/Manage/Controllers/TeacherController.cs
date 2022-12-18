@@ -1,5 +1,6 @@
 ﻿using EduHome.DAL;
 using EduHome.Extension;
+using EduHome.Helpers;
 using EduHome.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -180,14 +181,18 @@ namespace EduHome.Areas.Manage.Controllers
                     return View(teacher);
                 }
 
-
-                if (existedTeacher.Image != null)
-                {
-                    existedTeacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
-
-                }
+                
 
             }
+
+            if (teacher.File != null)
+            {
+                Helper.DeleteFile(_env, existedTeacher.Image, "assets", "img", "teacher");
+                existedTeacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
+            }
+           
+               
+            
            
 
             existedTeacher.Fullname = teacher.Fullname.Trim();
@@ -227,6 +232,7 @@ namespace EduHome.Areas.Manage.Controllers
             {
                 return NotFound("Id not correct");
             }
+
 
             teachers.IsDeleted = true;
             teachers.DeletedBy = "";
