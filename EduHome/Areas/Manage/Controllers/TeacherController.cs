@@ -77,7 +77,7 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(teacher);
             }
 
-            
+
             if (teacher.File == null)
             {
                 ModelState.AddModelError("File", "File is required");
@@ -95,7 +95,7 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(teacher);
             }
 
-             teacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
+            teacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
 
 
 
@@ -135,7 +135,7 @@ namespace EduHome.Areas.Manage.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int? id,Teacher teacher)
+        public async Task<IActionResult> Update(int? id, Teacher teacher)
         {
             if (!ModelState.IsValid)
             {
@@ -198,9 +198,18 @@ namespace EduHome.Areas.Manage.Controllers
 
                 //existedTeacher.Image = fileName;
 
-                teacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
+                if (existedTeacher.Image != null)
+                {
+                    existedTeacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
 
-                existedTeacher.Image = null;
+                }
+                else
+                {
+
+                    existedTeacher.Image = null;
+                }
+
+
             }
 
             existedTeacher.Fullname = teacher.Fullname.Trim();
@@ -214,10 +223,10 @@ namespace EduHome.Areas.Manage.Controllers
             existedTeacher.FacebookURL = teacher.FacebookURL;
             existedTeacher.PinterestURL = teacher.PinterestURL;
             existedTeacher.VimeoURL = teacher.VimeoURL;
-            existedTeacher.TwitterURL= teacher.TwitterURL;
+            existedTeacher.TwitterURL = teacher.TwitterURL;
             existedTeacher.UpdatedAt = DateTime.UtcNow;
-            existedTeacher.UpdatedBy= "System";
-            
+            existedTeacher.UpdatedBy = "System";
+
 
             await _context.SaveChangesAsync();
 

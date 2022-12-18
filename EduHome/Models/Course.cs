@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,7 +49,6 @@ namespace EduHome.Models
         public Category Category { get; set; }
         public int CategoryId { get; set; }
         public IEnumerable<CourseTag> CourseTags { get; set; }
-        public IEnumerable<CourseDetailTitle> CourseDetailTitles { get; set; }
 
         [StringLength(255)]
         public string FormName { get; set; }
@@ -57,5 +58,12 @@ namespace EduHome.Models
         public string Subject { get; set; }
         [StringLength(800)]
         public string Message { get; set; }
+
+        [NotMapped]
+        public IFormFile File { get; set; }
+    
+        [NotMapped]
+        [MaxLength(5)]
+        public IEnumerable<int> TagIds { get; set; }
     }
 }

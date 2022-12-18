@@ -21,7 +21,7 @@ namespace EduHome.Models
         [StringLength(255)]
         public string Image { get; set; }
   
-
+        
         public IEnumerable<BlogTag> BlogTags { get; set; }
         public IEnumerable<BlogDescription> BlogDescriptions { get; set; }
 

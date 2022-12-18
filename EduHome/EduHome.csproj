@@ -99,9 +99,30 @@
     <Compile Remove="Migrations\20221217170648_test.Designer.cs" />
     <Compile Remove="Migrations\20221217171050_UpdateCourseDetailTableAgain.cs" />
     <Compile Remove="Migrations\20221217171050_UpdateCourseDetailTableAgain.Designer.cs" />
+    <Compile Remove="Migrations\20221217171809_test.cs" />
+    <Compile Remove="Migrations\20221217171809_test.Designer.cs" />
+    <Compile Remove="Migrations\20221217172456_test.cs" />
+    <Compile Remove="Migrations\20221217172456_test.Designer.cs" />
+    <Compile Remove="Migrations\20221217173010_test.cs" />
+    <Compile Remove="Migrations\20221217173010_test.Designer.cs" />
+    <Compile Remove="Migrations\20221217173215_testt.cs" />
+    <Compile Remove="Migrations\20221217173215_testt.Designer.cs" />
+    <Compile Remove="Migrations\20221217173354_UpdatedDetailTitle.cs" />
+    <Compile Remove="Migrations\20221217173354_UpdatedDetailTitle.Designer.cs" />
+    <Compile Remove="Migrations\20221217173506_UpdatedDetailTitle.cs" />
+    <Compile Remove="Migrations\20221217173506_UpdatedDetailTitle.Designer.cs" />
+    <Compile Remove="Migrations\20221217173728_title.cs" />
+    <Compile Remove="Migrations\20221217173728_title.Designer.cs" />
+    <Compile Remove="Migrations\20221217174032_testoo.cs" />
+    <Compile Remove="Migrations\20221217174032_testoo.Designer.cs" />
+    <Compile Remove="Migrations\20221217192447_zippo.cs" />
+    <Compile Remove="Migrations\20221217192447_zippo.Designer.cs" />
+    <Compile Remove="Migrations\20221218001859_UpdatedCourseTableAddedNullablePropertyForCourseStarts.cs" />
+    <Compile Remove="Migrations\20221218001859_UpdatedCourseTableAddedNullablePropertyForCourseStarts.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.31">
