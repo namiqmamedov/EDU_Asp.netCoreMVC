@@ -1,4 +1,5 @@
 ﻿using EduHome.DAL;
+using EduHome.Extension;
 using EduHome.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +29,7 @@ namespace EduHome.Areas.Manage.Controllers
             IEnumerable<Event> events = await _context.Events
             .Include(c => c.Category)
             .Include(et => et.EventTags).ThenInclude(et => et.Tag)
-            .Include(ts => ts.EventSpeakers).ThenInclude(t => t.Teacher)
+            //.Include(ts => ts.EventSpeakers).ThenInclude(t => t.Teacher)
             .Where(e => e.IsDeleted == false)
             .ToListAsync();
 
@@ -65,6 +66,25 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(events);
             }
 
+            if (events.File == null)
+            {
+                ModelState.AddModelError("File", "File is required");
+                return View(events);
+            }
+
+            if (events.File.ContentType != "image/jpeg")
+            {
+                ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
+                return View(events);
+            }
+            if (events.File.Length > 255096)
+            {
+                ModelState.AddModelError("File", "Maximum size is 255096 kb");
+                return View(events);
+            }
+
+            events.Image = events.File.CreateImage(_env, "assets", "img", "event");
+
             List<EventTag> eventTags = new List<EventTag>();
 
             foreach (int tagId in events.TagIds)
@@ -93,7 +113,6 @@ namespace EduHome.Areas.Manage.Controllers
             }
 
 
-            events.Title = events.Title;
             events.IsDeleted = false;
             events.CreatedAt = DateTime.Now;
             events.CreatedBy = "System";
@@ -110,20 +129,20 @@ namespace EduHome.Areas.Manage.Controllers
         {
             if (id == null)
             {
-                return BadRequest();
+                return BadRequest("ID cannot be null!");
             }
 
             Event events = await _context.Events.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
 
             if (events == null)
             {
-                return NotFound();
+                return NotFound("The entered ID is wrong");
             }
 
             events.TagIds = await _context.EventTags.Where(et => et.EventId == id)
            .Select(t => t.TagId).ToListAsync();
 
-            ViewBag.Categories = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
+            ViewBag.Category = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
             ViewBag.Tags = await _context.Tags.Where(t => t.IsDeleted == false).ToListAsync();
             ViewBag.Speakers = await _context.Teachers.Where(t => t.IsDeleted == false).ToListAsync();
 
@@ -144,6 +163,19 @@ namespace EduHome.Areas.Manage.Controllers
             {
                 return View(events);
             }
+            if (id == null)
+            {
+                return BadRequest("ID cannot be null!");
+            }
+
+            if (events.Id != id)
+            {
+                return BadRequest("ID cannot be empty!");
+            }
+
+            Event existedEvent = await _context.Events.FirstOrDefaultAsync(e => e.IsDeleted == false && e.Id == id);
+
+
 
             if (!await _context.Events.AnyAsync(e => e.IsDeleted == false && e.Id == events.CategoryId))
             {
@@ -179,7 +211,7 @@ namespace EduHome.Areas.Manage.Controllers
             }
 
 
-            events.Title = events.Title;
+            existedEvent.Title = events.Title;
             events.IsDeleted = false;
             events.CreatedAt = DateTime.Now;
             events.CreatedBy = "System";

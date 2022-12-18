@@ -543,3 +543,6 @@ C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Area
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Event\Create.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Event\Detail.cshtml.g.cs
 C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Event\Update.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Create.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Update.cshtml.g.cs
+C:\Users\ACER\source\repos\C#\EduHome\EduHome\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Index.cshtml.g.cs

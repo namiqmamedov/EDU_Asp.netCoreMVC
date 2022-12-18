@@ -116,7 +116,7 @@ namespace EduHome.Areas.Manage.Controllers
         {
             if (id == null)
             {
-                return BadRequest("ID cannot be empty!");
+                return BadRequest("ID cannot be null!");
             }
 
             Teacher teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.IsDeleted == false && t.Id == id);
@@ -186,8 +186,6 @@ namespace EduHome.Areas.Manage.Controllers
                     existedTeacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
 
                 }
-                
-
 
             }
            

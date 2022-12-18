@@ -32,6 +32,7 @@ namespace EduHome
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                //options.EnableSensitiveDataLogging();
             });
 
             services.AddScoped<LayoutService>();
