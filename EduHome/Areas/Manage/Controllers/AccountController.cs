@@ -30,42 +30,47 @@ namespace EduHome.Areas.Manage.Controllers
             _signInManager = signInManager;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Register()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Register(RegisterVM registerVM)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(registerVM);
-        //    }
 
-        //    AppUser appUser = new AppUser
-        //    {
-        //        Name = registerVM.Name,
-        //        Email = registerVM.Email,
-        //        UserName = registerVM.UserName
-        //    };
 
-        //    IdentityResult identityResult = await _userManager.CreateAsync(appUser, registerVM.Password);
+        [HttpGet]
+        public async Task<IActionResult> Register()
+        {
+            return View();
+        }
 
-        //    if (!identityResult.Succeeded)
-        //    {
-        //        foreach (var item in identityResult.Errors)
-        //        {
-        //            ModelState.AddModelError("", item.Description);
-        //        }
-        //        return View(registerVM);
-        //    }
 
-        //    return RedirectToAction("Index", "Dashboard", new { area = "manage" });
-        //    //return RedirectToAction("login");
 
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterVM registerVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(registerVM);
+            }
+
+            AppUser appUser = new AppUser
+            {
+                UserName = registerVM.UserName
+            };
+
+            IdentityResult identityResult = await _userManager.CreateAsync(appUser, registerVM.Password);
+
+            if (!identityResult.Succeeded)
+            {
+                foreach (var item in identityResult.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+                return View(registerVM);
+            }
+
+            await _userManager.AddToRoleAsync(appUser, "Admin");
+
+            //return RedirectToAction("Index", "Dashboard", new { area = "manage" });
+            return RedirectToAction("Index");
+
+        }
 
         [HttpGet]
 

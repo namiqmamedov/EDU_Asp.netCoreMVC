@@ -1,4 +1,6 @@
 ﻿using EduHome.DAL;
+using EduHome.Extension;
+using EduHome.Helpers;
 using EduHome.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -162,6 +164,12 @@ namespace EduHome.Areas.Manage.Controllers
                 };
 
                 courseTags.Add(courseTag);
+            }
+
+            if (course.File != null)
+            {
+                Helper.DeleteFile(_env, existedCourse.Image, "assets", "img", "course");
+                existedCourse.Image = course.File.CreateImage(_env, "assets", "img", "course");
             }
 
             existedCourse.CourseTags = courseTags;

@@ -75,8 +75,15 @@ using EduHome.ViewModels.Courses;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Register;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3f0457cdc7e48d5f327994bdf208eadb69145240", @"/Views/Blog/BlogDetail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab065ff651714b91f1ff6f87c232a52d0dff7c80", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"87e6e6666438ecf2b981716193689aa0d6237c07", @"/Views/_ViewImports.cshtml")]
     public class Views_Blog_BlogDetail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BlogDetailVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("style", new global::Microsoft.AspNetCore.Html.HtmlString("width: 100%;"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -120,7 +127,7 @@ using EduHome.ViewModels.Courses;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\n\n<div class=\"blog-details-area pt-150 pb-140\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-8\">\n                <div class=\"blog-details\">\n                    <div class=\"blog-details-img\">\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3f0457cdc7e48d5f327994bdf208eadb691452409531", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3f0457cdc7e48d5f327994bdf208eadb691452409720", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -202,7 +209,7 @@ AddHtmlAttributeValue("", 324, Model.Blog.Image, 324, 17, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    </div>\n                    <div class=\"reply-area\">\n                        <h3>LEAVE A REPLY</h3>\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524013435", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524013624", async() => {
                 WriteLiteral(@"
                             <div class=""row"">
                                 <div class=""col-md-12"">
@@ -250,7 +257,7 @@ AddHtmlAttributeValue("", 324, Model.Blog.Image, 324, 17, false);
                         <h3>search</h3>
                         <div class=""blog-search"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524016544", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524016733", async() => {
                 WriteLiteral(@"
                                 <input type=""search"" placeholder=""Search..."" name=""search"" />
                                 <button type=""submit"">
@@ -306,7 +313,7 @@ AddHtmlAttributeValue("", 324, Model.Blog.Image, 324, 17, false);
 #line hidden
 #nullable disable
             WriteLiteral("\n                        </ul>\n\n                    </div>\n                    <div class=\"single-blog-widget mb-47\">\n                        <div class=\"single-blog-banner\">\n                            <a href=\"blog-details.html\" id=\"blog\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3f0457cdc7e48d5f327994bdf208eadb6914524019852", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3f0457cdc7e48d5f327994bdf208eadb6914524020041", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -330,9 +337,9 @@ AddHtmlAttributeValue("", 324, Model.Blog.Image, 324, 17, false);
 #line hidden
 #nullable disable
             WriteLiteral("                <div class=\"single-post mb-30\">\n                    <div class=\"single-post-img\">\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524021613", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524021802", async() => {
                 WriteLiteral("\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3f0457cdc7e48d5f327994bdf208eadb6914524021895", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "3f0457cdc7e48d5f327994bdf208eadb6914524022084", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -357,7 +364,7 @@ AddHtmlAttributeValue("", 4187, blog.Image, 4187, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\n                            <div class=\"blog-hover\">\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524023706", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524023895", async() => {
                     WriteLiteral("<i class=\"fa fa-link\"></i>");
                 }
                 );
@@ -421,7 +428,7 @@ AddHtmlAttributeValue("", 4187, blog.Image, 4187, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                    </div>\n                    <div class=\"single-post-content\">\n                        <h4>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524028533", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f0457cdc7e48d5f327994bdf208eadb6914524028722", async() => {
 #nullable restore
 #line 88 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\Blog\BlogDetail.cshtml"
                                                                                                 Write(blog.Title);

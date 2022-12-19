@@ -75,8 +75,15 @@ using EduHome.ViewModels.Courses;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Register;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44bd83eece9233f10a15736f0e7a46ae1b14197b", @"/Views/Event/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab065ff651714b91f1ff6f87c232a52d0dff7c80", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"87e6e6666438ecf2b981716193689aa0d6237c07", @"/Views/_ViewImports.cshtml")]
     public class Views_Event_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<EventVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString("event"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -142,9 +149,9 @@ using EduHome.ViewModels.Courses;
 #line hidden
 #nullable disable
             WriteLiteral("<div class=\"col-md-4 col-sm-6 col-xs-12\">\n    <div class=\"single-event mb-60\">\n        <div class=\"event-img\">\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b6787", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b6976", async() => {
                 WriteLiteral("\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "44bd83eece9233f10a15736f0e7a46ae1b14197b7056", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "44bd83eece9233f10a15736f0e7a46ae1b14197b7245", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -168,7 +175,7 @@ AddHtmlAttributeValue("", 904, item.Image, 904, 11, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\n                <div class=\"course-hover\">\n                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b8749", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b8938", async() => {
                     WriteLiteral("<i class=\"fa fa-link\"></i>");
                 }
                 );
@@ -240,7 +247,7 @@ AddHtmlAttributeValue("", 904, item.Image, 904, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("\n            </div>\n        </div>\n        <div class=\"event-content text-left\">\n            <h4>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b13789", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b13978", async() => {
 #nullable restore
 #line 42 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\Event\Index.cshtml"
                                                                                       Write(item.Title);
@@ -295,7 +302,7 @@ AddHtmlAttributeValue("", 904, item.Image, 904, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("</li>\n            </ul>\n            <div class=\"event-content-right\">\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b17054", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44bd83eece9233f10a15736f0e7a46ae1b14197b17243", async() => {
                 WriteLiteral("join now");
             }
             );

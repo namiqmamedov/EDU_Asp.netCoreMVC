@@ -75,8 +75,15 @@ using EduHome.ViewModels.Courses;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Register;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ae05a57d7a2ec6519a1f6d411013abca82f8f23e", @"/Views/Shared/Components/NoticeRight/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab065ff651714b91f1ff6f87c232a52d0dff7c80", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"87e6e6666438ecf2b981716193689aa0d6237c07", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_NoticeRight_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<NoticeRight>>
     {
         #pragma warning disable 1998

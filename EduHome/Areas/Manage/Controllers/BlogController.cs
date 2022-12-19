@@ -1,5 +1,6 @@
 ﻿using EduHome.DAL;
 using EduHome.Extension;
+using EduHome.Helpers;
 using EduHome.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,6 @@ namespace EduHome.Areas.Manage.Controllers
                 .Include(b => b.Category)
                 .Include(bd => bd.BlogDescriptions)
                 .Include(bt => bt.BlogTags).ThenInclude(bt => bt.Tag)
-                .Include(c => c.BlogDescriptions)
                 .Where(b => b.IsDeleted == false)
                 .ToListAsync();
 
@@ -42,7 +42,6 @@ namespace EduHome.Areas.Manage.Controllers
         {
             ViewBag.BlogTags = await _context.BlogTags.Where(b => b.IsDeleted == false).ToListAsync();
             ViewBag.BlogDescriptions = await _context.BlogDescriptions.Where(bd => bd.IsDeleted == false).ToListAsync();
-            ViewBag.Categories = await _context.Categories.Where(bd => bd.IsDeleted == false).ToListAsync();
 
             return View();
         }
@@ -124,8 +123,160 @@ namespace EduHome.Areas.Manage.Controllers
             }
 
 
+            blogs.IsDeleted = false;
+            blogs.CreatedAt = DateTime.Now;
+            blogs.CreatedBy = "System";
+            
 
+            await _context.Blogs.AddAsync(blogs);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
 
         }
+
+        [HttpGet]
+
+        public async Task<IActionResult> Update(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("ID cannot be null!");
+            }
+
+            Blog blog = await _context.Blogs.FirstOrDefaultAsync(b => b.IsDeleted == false && b.Id == id);
+
+            if (blog == null)
+            {
+                return NotFound("The entered ID is wrong");
+            }
+
+            blog.TagIds = await _context.BlogTags.Where(bt => bt.BlogId == id)
+           .Select(t => t.TagId).ToListAsync();
+
+            ViewBag.Description = await _context.Descriptions.Where(b => b.IsDeleted == false).ToListAsync();
+            ViewBag.Tags = await _context.Tags.Where(t => t.IsDeleted == false).ToListAsync();
+            
+            return View(blog);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int? id, Blog blog)
+        {
+
+            ViewBag.Description = await _context.Descriptions.Where(b => b.IsDeleted == false).ToListAsync();
+            ViewBag.Tags = await _context.Tags.Where(t => t.IsDeleted == false).ToListAsync();
+
+            if (!ModelState.IsValid)
+            {
+                return View(blog);
+            }
+            if (id == null)
+            {
+                return BadRequest("ID cannot be null!");
+            }
+
+            if (blog.Id != id)
+            {
+                return BadRequest("ID cannot be empty!");
+            }
+
+            Blog existedBlog = await _context.Blogs.FirstOrDefaultAsync(b => b.IsDeleted == false && b.Id == id);
+
+
+            List<EventTag> blogTags = new List<EventTag>();
+
+            foreach (int tagId in blog.TagIds)
+            {
+                if (blog.TagIds.Where(t => t == tagId).Count() > 1)
+                {
+                    ModelState.AddModelError("TagIds", "You can't use the same tag more than once !");
+                    return View(blog);
+                }
+
+                if (!await _context.Tags.AnyAsync(c => c.IsDeleted == false && c.Id == tagId))
+                {
+                    ModelState.AddModelError("TagIds", "Selected category is not correct.");
+                    return View(blog);
+                }
+
+                EventTag eventTag = new EventTag
+                {
+                    CreatedAt = DateTime.UtcNow,
+                    CreatedBy = "System",
+                    IsDeleted = false,
+                    TagId = tagId
+                };
+
+                blogTags.Add(eventTag);
+            }
+
+            if (blog.File != null)
+            {
+                Helper.DeleteFile(_env, existedBlog.Image, "assets", "img", "blog");
+                existedBlog.Image = blog.File.CreateImage(_env, "assets", "img", "blog");
+            }
+
+            existedBlog.Title = blog.Title;
+            existedBlog.Date = blog.Date;
+            existedBlog.Name = blog.Name;
+       
+
+            blog.IsDeleted = false;
+            blog.CreatedAt = DateTime.Now;
+            blog.CreatedBy = "System";
+
+            await _context.Blogs.AddAsync(blog);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("ID not a null");
+            }
+
+            Blog blog = await _context.Blogs
+                .FirstOrDefaultAsync(b => b.IsDeleted == false && b.Id == id);
+
+            if (blog == null)
+            {
+                return NotFound("Id not correct");
+            }
+
+            blog.IsDeleted = true;
+            blog.DeletedBy = "";
+            blog.DeletedAt = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+
+        }
+
+
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("ID is not a null");
+            }
+
+            Blog blog = await _context.Blogs
+            .Include(b => b.BlogDescriptions)
+            .Include(et => et.BlogTags).ThenInclude(et => et.Tag)
+            .FirstOrDefaultAsync(e => e.IsDeleted == false && e.Id == id);
+
+            if (blog == null)
+            {
+                return NotFound("ID is not correct");
+            }
+
+            return View(blog);
+        }
+
     }
 }

@@ -32,7 +32,7 @@ namespace EduHome.Models
         [StringLength(1000)]
         public string CertificationDesc { get; set; }
         [StringLength(255)]
-        public DateTime CourseStarts { get; set; }
+        public DateTime? CourseStarts { get; set; }
         [StringLength(255)]
         public string CourseDuration { get; set; }
         [StringLength(255)]

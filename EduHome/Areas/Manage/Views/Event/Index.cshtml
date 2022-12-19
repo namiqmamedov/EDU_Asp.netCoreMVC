@@ -38,7 +38,7 @@
                     </td>
                     <td>@events.Title</td>
                     <td>@(events.EventTags != null && events.EventTags.Count() > 0 ? String.Join(",", events.EventTags.Select(e=>e.Tag.Name)) : "")</td>
-                    <td>@events.CreatedAt?.ToString("d, MMM yyyy")</td>
+                    <td>@*@events.CreatedAt?.ToString("d, MMM yyyy")*@</td>
                     <td>
                         <div style="word-spacing: 16px;" class="buttons">
                             <a style="width: 26.8%;" class="btn btn-warning" asp-area="manage" asp-action="update" asp-route-id="@events.Id">Update</a>

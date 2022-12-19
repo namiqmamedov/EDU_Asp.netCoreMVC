@@ -25,7 +25,7 @@ namespace EduHome.Controllers
                 Blogs = await _context.Blogs.Where(t => t.IsDeleted == false).ToListAsync(),
                 BlogDescriptions = await _context.BlogDescriptions.Where(t => t.IsDeleted == false).ToListAsync(),
                 BlogTags = await _context.BlogTags.Where(t => t.IsDeleted == false).ToListAsync(),
-                //BlogCategories = await _context.BlogCategories.Where(t => t.IsDeleted == false).ToListAsync(),
+   
 
             };
 
@@ -36,7 +36,7 @@ namespace EduHome.Controllers
         {
             BlogDetailVM blogDetailVM = new BlogDetailVM
             {
-                Blog = _context.Blogs./*Include(b => b.BlogCategories).ThenInclude(b => b.Category).*/Include(d => d.BlogDescriptions).Include(tg => tg.BlogTags).ThenInclude(tg => tg.Tag).FirstOrDefault(b => b.Id == id),
+                Blog = _context.Blogs.Include(d => d.BlogDescriptions).Include(tg => tg.BlogTags).ThenInclude(tg => tg.Tag).FirstOrDefault(b => b.Id == id),
                 Blogs = _context.Blogs.Where(b => !b.IsDeleted).ToList(),
                 categories = _context.Categories.Where(b => !b.IsDeleted).Include(c => c.Courses).ToList()
             };

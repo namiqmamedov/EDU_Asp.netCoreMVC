@@ -2,10 +2,8 @@
 
 @{
     ViewData["Title"] = "Update";
-    IEnumerable<Category> categories = ViewBag.Categories;
     IEnumerable<Tag> tags = ViewBag.Tags;
 
-    SelectList selectListCategoriesItems = new SelectList(categories, nameof(Category.Id), nameof(Category.Name));
     SelectList selectListTagsItems = new SelectList(tags, nameof(Tag.Id), nameof(Tag.Name));
 
 }
@@ -39,11 +37,6 @@
             <label asp-for="Venue" class="form-label"></label>
             <input asp-for="Venue" class="form-control">
             <span asp-validation-for="Venue" class="text text-danger"></span>
-        </div>
-        <div id="parentList" class="form-group">
-            <label>Category</label>
-            <select asp-for="CategoryId" class="form-control" asp-items="selectListCategoriesItems">
-            </select>
         </div>
         <div id="parentList" class="form-group">
             <label>Tag</label>
