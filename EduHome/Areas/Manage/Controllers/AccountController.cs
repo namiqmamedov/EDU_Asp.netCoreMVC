@@ -1,5 +1,6 @@
 ﻿using EduHome.Areas.Manage.ViewModels.Account;
 using EduHome.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -110,6 +111,25 @@ namespace EduHome.Areas.Manage.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        [Authorize]
+
+        public async Task<IActionResult> Profile()
+        {
+            AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            //ProfileVM profileVM = new ProfileVM
+            //{
+            //    Name = appUser.Name,
+            //    UserName = appUser.UserName,
+            //    Email = appUser.Email
+            //};
+
+            return View(/*profileVM*/);
+        }
+
+
 
         //public async Task<IActionResult> CreateSuperAdmin()
         //{
