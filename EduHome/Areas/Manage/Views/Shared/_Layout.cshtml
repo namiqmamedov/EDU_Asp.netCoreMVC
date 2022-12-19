@@ -326,7 +326,7 @@
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item">
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Settings
                                     </a>
@@ -335,7 +335,7 @@
                                         Activity Log
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <a class="dropdown-item" asp-area="manage" asp-controller="account" asp-action="logout">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
                                     </a>
@@ -343,7 +343,7 @@
                             </li> }
                                         else
                                         {
-                            <a style="margin-top: 1.2rem; margin-left: -29px;" class="dropdown-item" asp-area="manage" asp-controller="account" asp-action="login" data-toggle="modal" data-target="#logoutModal">
+                            <a style="margin-top: 1.5rem; margin-left: 2px;" asp-area="manage" asp-controller="account" asp-action="login" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Login
                             </a>}
