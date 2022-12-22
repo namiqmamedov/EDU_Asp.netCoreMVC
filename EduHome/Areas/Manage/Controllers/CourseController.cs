@@ -62,6 +62,25 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(course);
             }
 
+            if (course.File == null)
+            {
+                ModelState.AddModelError("File", "File is required");
+                return View(course);
+            }
+
+            if (course.File.ContentType != "image/jpeg")
+            {
+                ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
+                return View(course);
+            }
+            if (course.File.Length > 125096)
+            {
+                ModelState.AddModelError("File", "Maximum size is 125096 kb");
+                return View(course);
+            }
+
+            course.Image = course.File.CreateImage(_env, "assets", "img", "course");
+
             List<CourseTag> courseTags = new List<CourseTag>();
 
             foreach (int tagId in course.TagIds)
@@ -90,7 +109,9 @@ namespace EduHome.Areas.Manage.Controllers
             }
 
             course.CourseTags = courseTags;
-            course.Title = course.Title;
+            course.IsDeleted = false;
+            course.CreatedAt = DateTime.UtcNow;
+            course.CreatedBy = "System";
 
 
             await _context.Courses.AddAsync(course);
@@ -135,7 +156,46 @@ namespace EduHome.Areas.Manage.Controllers
                 return View(course);
             }
 
+            if (id == null)
+            {
+                return BadRequest("ID cannot be null!");
+            }
+
+            if (course.Id != id)
+            {
+                return BadRequest("ID cannot be empty!");
+            }
+
+
             Course existedCourse = await _context.Courses.Include(c => c.CourseTags).FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+
+            if (course == null)
+            {
+                return NotFound("The entered ID is wrong");
+            }
+
+
+            if (existedCourse.File != null)
+            {
+                if (course.File.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
+                    return View(course);
+                }
+                if (course.File.Length > 45096)
+                {
+                    ModelState.AddModelError("File", "Maximum size is 45 kb");
+                    return View(course);
+                }
+
+            }
+
+            if (course.File != null)
+            {
+                Helper.DeleteFile(_env, existedCourse.Image, "assets", "img", "course");
+                existedCourse.Image = course.File.CreateImage(_env, "assets", "img", "course");
+            }
+
 
             _context.CourseTags.RemoveRange(existedCourse.CourseTags);
 
@@ -166,16 +226,26 @@ namespace EduHome.Areas.Manage.Controllers
                 courseTags.Add(courseTag);
             }
 
-            if (course.File != null)
-            {
-                Helper.DeleteFile(_env, existedCourse.Image, "assets", "img", "course");
-                existedCourse.Image = course.File.CreateImage(_env, "assets", "img", "course");
-            }
 
             existedCourse.CourseTags = courseTags;
             existedCourse.Title = course.Title;
             existedCourse.Description = course.Description;
             existedCourse.CourseStarts = course.CourseStarts;
+            existedCourse.AboutDesc = course.AboutDesc;
+            existedCourse.ApplyDesc = course.ApplyDesc;
+            existedCourse.CertificationDesc = course.CertificationDesc;
+            existedCourse.CourseAssesments = course.CourseAssesments;
+            existedCourse.CourseDuration = course.CourseDuration;
+            existedCourse.CourseClassDuration = course.CourseClassDuration;
+            existedCourse.CourseLanguage = course.CourseLanguage;
+            existedCourse.CourseSkillLevel = course.CourseSkillLevel;
+            existedCourse.CourseStudents = course.CourseStudents;
+            existedCourse.FEE = course.FEE;
+            existedCourse.LastDesc = course.LastDesc;
+            existedCourse.TitleDesc = course.TitleDesc;
+            existedCourse.Category = course.Category;
+            existedCourse.UpdatedAt = DateTime.UtcNow;
+            existedCourse.UpdatedBy = "System";
 
             await _context.SaveChangesAsync();
 

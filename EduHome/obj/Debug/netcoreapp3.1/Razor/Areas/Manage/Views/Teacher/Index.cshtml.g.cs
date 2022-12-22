@@ -28,62 +28,69 @@ using EduHome.Services;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
-using EduHome.ViewModels.Home;
+using EduHome.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
-using EduHome.ViewModels.About;
+using EduHome.ViewModels.Home;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 6 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
-using EduHome.ViewModels.Contact;
+using EduHome.ViewModels.About;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 7 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
-using EduHome.ViewModels.Teachers;
+using EduHome.ViewModels.Contact;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 8 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
-using EduHome.ViewModels.Blogs;
+using EduHome.ViewModels.Teachers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
-using EduHome.ViewModels.Events;
+using EduHome.ViewModels.Blogs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
-using EduHome.ViewModels.Courses;
+using EduHome.ViewModels.Events;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
+using EduHome.ViewModels.Courses;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\ACER\source\repos\C#\EduHome\EduHome\Areas\Manage\Views\_ViewImports.cshtml"
 using EduHome.Areas.Manage.ViewModels.Account;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2eae5a6ac3e64d71a223e57db94d182d4c910825", @"/Areas/Manage/Views/Teacher/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f978b689e005bbe36f1e075d2c186e006831a464", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e95ed8d868bedcf6eb39b7e7a635b31e192ffb40", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Teacher_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Teacher>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("style", new global::Microsoft.AspNetCore.Html.HtmlString("margin-left: -6.8rem;"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -135,7 +142,7 @@ using EduHome.Areas.Manage.ViewModels.Account;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n<div class=\"row justify-content-between mt-5\">\r\n    <div class=\"col-lg-2\">\r\n        <h1 style=\"margin-left: 24px;min-width: 202px;\" class=\"h3 mb-4 text-gray-800\">Teachers Page</h1>\r\n    </div>\r\n    <div class=\"col-lg-1\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c9108259738", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c9108259931", async() => {
                 WriteLiteral("Create");
             }
             );
@@ -186,7 +193,7 @@ using EduHome.Areas.Manage.ViewModels.Account;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                    <td>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2eae5a6ac3e64d71a223e57db94d182d4c91082512567", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2eae5a6ac3e64d71a223e57db94d182d4c91082512760", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -235,7 +242,7 @@ AddHtmlAttributeValue("", 1189, teacher.Image, 1189, 14, false);
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                    <td>\r\n                        <div style=\"word-spacing: 16px;\" class=\"buttons\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c91082515252", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c91082515445", async() => {
                 WriteLiteral("Update");
             }
             );
@@ -270,7 +277,7 @@ AddHtmlAttributeValue("", 1189, teacher.Image, 1189, 14, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c91082517883", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c91082518076", async() => {
                 WriteLiteral("Delete");
             }
             );
@@ -305,7 +312,7 @@ AddHtmlAttributeValue("", 1189, teacher.Image, 1189, 14, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c91082520516", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2eae5a6ac3e64d71a223e57db94d182d4c91082520709", async() => {
                 WriteLiteral("Detail");
             }
             );

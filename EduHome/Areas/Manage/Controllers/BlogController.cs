@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EduHome.ViewModels;
 
 namespace EduHome.Areas.Manage.Controllers
 {
@@ -25,16 +26,17 @@ namespace EduHome.Areas.Manage.Controllers
 
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageIndex)
         {
-            IEnumerable<Blog> blogs = await _context.Blogs
+            IQueryable<Blog> blogs = _context.Blogs
                 .Include(b => b.Category)
                 .Include(bd => bd.BlogDescriptions)
                 .Include(bt => bt.BlogTags).ThenInclude(bt => bt.Tag)
                 .Where(b => b.IsDeleted == false)
-                .ToListAsync();
+                .OrderByDescending(b => b.Id);
 
-            return View(blogs);
+           
+            return View(PageNationList<Blog>.Create(blogs,pageIndex,4));
         }
 
         [HttpGet]

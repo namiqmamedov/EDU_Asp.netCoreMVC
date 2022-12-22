@@ -42,13 +42,16 @@ namespace EduHome.Models
 
         [StringLength(255)]
         public string Hobby { get; set; }
-        //public IEnumerable<TeacherHobby> TeacherHobbies { get; set; }
         public IEnumerable<TeacherSkill> TeacherSkills { get; set; }
 
         [NotMapped]
         public IEnumerable<int> HobbyIds { get; set; }
         [NotMapped]
         public IFormFile File { get; set; }
-        
+
+        [NotMapped]
+        [MaxLength(5)]
+        public IEnumerable<int> SkillIds { get; set; }
+
     }
 }

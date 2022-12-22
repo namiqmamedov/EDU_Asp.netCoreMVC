@@ -2,7 +2,9 @@
 
 @{
     ViewData["Title"] = "Create";
-    IEnumerable<TeacherSkill> teacherSkills = ViewBag.TeacherSkills;
+    IEnumerable<Skill> skills = ViewBag.Skills;
+
+    SelectList selectListSkillItems = new SelectList(skills, nameof(Skill.Id), nameof(Skill.SkillName));
 }
 
 
@@ -30,11 +32,6 @@
             <span asp-validation-for="File " class="text text-danger"></span>
 
         </div>
-        @*<div class="form-group">
-            <label asp-for="TeacherSkills" class="form-label"></label>
-            <input asp-for="TeacherSkills" class="form-control">
-            <span asp-validation-for="TeacherSkills" class="text text-danger"></span>
-        </div>*@
         <div class="form-group">
             <label asp-for="Experince" class="form-label"></label>
             <input asp-for="Experince" class="form-control">
@@ -85,6 +82,17 @@
             <input asp-for="TwitterURL" class="form-control">
             <span asp-validation-for="TwitterURL" class="text text-danger"></span>
         </div>
+        <div class="form-group">
+            <label>Skill</label>
+            <input asp-for="SkillIds"  class="form-control" asp-items="selectListSkillItems">
+            <span asp-validation-for="SkillIds" class="text text-danger"></span>
+        </div>
+        @*<div id="parentList" class="form-group">
+            <label>Skill</label>
+            <select asp-for="SkillIds" class="form-control" asp-items="selectListSkillItems">
+            </select>
+            <span asp-validation-for="SkillIds" class="text text-danger"></span>
+        </div>*@
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
