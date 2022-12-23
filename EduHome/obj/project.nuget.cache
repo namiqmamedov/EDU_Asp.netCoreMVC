@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LZ4X2G/ai1c1G0s56nfm6vnfxi1VhRaMn3clY8LqFQdPuyWwgrnxO+xsqE4/HI85BlkHFjrSFXWK2WCcU4Ohag==",
+  "dgSpecHash": "kmL8tT86ukC4wzPgQUsaNe5rqsqZg5NYSexLHiVO+uNCE/pW9PRh7KG9CA8qvh3cTBSSLGuDQPwMs8Jv0rN4Cw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\source\\repos\\C#\\EduHome\\EduHome\\EduHome.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\Desktop\\EDU_Asp.netCoreMVC-master\\EduHome\\EduHome.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.32\\microsoft.aspnetcore.authentication.jwtbearer.3.1.32.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.31\\microsoft.aspnetcore.cryptography.internal.3.1.31.nupkg.sha512",

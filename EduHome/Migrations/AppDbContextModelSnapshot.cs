@@ -611,9 +611,8 @@ namespace EduHome.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<DateTime?>("CourseStarts")
-                        .HasColumnType("datetime2")
-                        .HasMaxLength(255);
+                    b.Property<DateTime>("CourseStarts")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CourseStudents")
                         .HasColumnType("nvarchar(255)")

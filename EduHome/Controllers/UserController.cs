@@ -44,7 +44,8 @@ namespace EduHome.Controllers
 
             AppUser appUser = new AppUser
             {
-                UserName = regVM.UserName
+                UserName = regVM.UserName,
+                Email = regVM.Email
             };
 
             IdentityResult identityResult = await _userManager.CreateAsync(appUser, regVM.Password);
@@ -64,5 +65,48 @@ namespace EduHome.Controllers
 
         }
 
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LogVM logVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(logVM);
+            }
+
+            AppUser appUser = await _userManager.FindByNameAsync(logVM.UserName);
+
+            if (appUser == null)
+            {
+                ModelState.AddModelError("", "Username or Password is incorrect");
+                return View(logVM);
+            }
+
+            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.CheckPasswordSignInAsync(appUser, logVM.Password, true);
+
+            if (!signInResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Username or Password is incorrect");
+                return View(logVM);
+            }
+
+
+            await _signInManager.PasswordSignInAsync(appUser, logVM.Password, logVM.RemindMe, true);
+
+
+            return View("Index");
+
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }

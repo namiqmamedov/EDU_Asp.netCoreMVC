@@ -8,6 +8,8 @@ namespace EduHome.ViewModels.User
 {
     public class RegVM
     {
+        [EmailAddress]
+        public string Email { get; set; }
         public string UserName { get; set; }
 
         [DataType(DataType.Password)]

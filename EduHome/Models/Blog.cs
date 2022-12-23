@@ -13,7 +13,6 @@ namespace EduHome.Models
 
         [StringLength(255)]
         public string Name { get; set; }
-        [StringLength(45)]
         public DateTime Date { get; set; }
         [StringLength(255)]
         public int Comment { get; set; }

@@ -1,5 +1,6 @@
 ﻿using EduHome.DAL;
 using EduHome.Extension;
+using EduHome.Helpers;
 using EduHome.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -175,6 +176,32 @@ namespace EduHome.Areas.Manage.Controllers
 
             Event existedEvent = await _context.Events.FirstOrDefaultAsync(e => e.IsDeleted == false && e.Id == id);
 
+            if (events == null)
+            {
+                return NotFound("The entered ID is wrong");
+            }
+
+
+            if (existedEvent.File != null)
+            {
+                if (events.File.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
+                    return View(events);
+                }
+                if (events.File.Length > 45096)
+                {
+                    ModelState.AddModelError("File", "Maximum size is 45 kb");
+                    return View(events);
+                }
+
+            }
+
+            if (events.File != null)
+            {
+                Helper.DeleteFile(_env, existedEvent.Image, "assets", "img", "event");
+                existedEvent.Image = events.File.CreateImage(_env, "assets", "img", "event");
+            }
 
 
             if (!await _context.Events.AnyAsync(e => e.IsDeleted == false && e.Id == events.CategoryId))
@@ -182,6 +209,9 @@ namespace EduHome.Areas.Manage.Controllers
                 ModelState.AddModelError("CategoryId", "Selected category is not correct.");
                 return View(events);
             }
+
+
+            _context.EventTags.RemoveRange(existedEvent.EventTags);
 
             List<EventTag> eventTags = new List<EventTag>();
 
@@ -211,12 +241,16 @@ namespace EduHome.Areas.Manage.Controllers
             }
 
 
-            //existedEvent.Title = events.Title;
-            events.IsDeleted = false;
-            events.CreatedAt = DateTime.Now;
-            events.CreatedBy = "System";
+            existedEvent.EventTags = eventTags;
+            existedEvent.Title = events.Title;
+            existedEvent.File = events.File;
+            existedEvent.Category = events.Category;
+            existedEvent.Date = events.Date;
+            existedEvent.EventDate = events.EventDate;
+            existedEvent.Venue = events.Venue;
+            existedEvent.UpdatedAt = DateTime.UtcNow;
+            existedEvent.UpdatedBy = "System";
 
-            await _context.Events.AddAsync(events);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");

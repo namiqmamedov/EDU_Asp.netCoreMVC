@@ -107,6 +107,8 @@
     <Compile Remove="Migrations\20221218210151_UpdatedBlogTableAddedCategoryProperty.Designer.cs" />
     <Compile Remove="Migrations\20221219074231_UpdatedBlogsTableAddedNullablePropertyInDate.cs" />
     <Compile Remove="Migrations\20221219074231_UpdatedBlogsTableAddedNullablePropertyInDate.Designer.cs" />
+    <Compile Remove="Migrations\20221223011156_UpdatedBlogTable.cs" />
+    <Compile Remove="Migrations\20221223011156_UpdatedBlogTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

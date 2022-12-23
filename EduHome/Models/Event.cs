@@ -26,7 +26,6 @@ namespace EduHome.Models
         public Category Category { get; set; }
         public int CategoryId { get; set; }
 
-        //public IEnumerable<EventCategory> EventCategories { get; set; }
         public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
         public IEnumerable<EventDescription> EventDescriptions { get; set; }
         public IEnumerable<EventTag> EventTags { get; set; }
