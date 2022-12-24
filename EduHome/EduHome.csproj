@@ -107,12 +107,25 @@
     <Compile Remove="Migrations\20221218210151_UpdatedBlogTableAddedCategoryProperty.Designer.cs" />
     <Compile Remove="Migrations\20221219074231_UpdatedBlogsTableAddedNullablePropertyInDate.cs" />
     <Compile Remove="Migrations\20221219074231_UpdatedBlogsTableAddedNullablePropertyInDate.Designer.cs" />
-    <Compile Remove="Migrations\20221223011156_UpdatedBlogTable.cs" />
-    <Compile Remove="Migrations\20221223011156_UpdatedBlogTable.Designer.cs" />
+    <Compile Remove="Migrations\20221224143012_UpdatedBlogTable.cs" />
+    <Compile Remove="Migrations\20221224143012_UpdatedBlogTable.Designer.cs" />
+    <Compile Remove="Migrations\20221224143110_UpdatedBlogTable.cs" />
+    <Compile Remove="Migrations\20221224143110_UpdatedBlogTable.Designer.cs" />
+    <Compile Remove="Migrations\20221224192306_UpdatedBlogTableAddedStringLength.cs" />
+    <Compile Remove="Migrations\20221224192306_UpdatedBlogTableAddedStringLength.Designer.cs" />
+    <Compile Remove="Migrations\20221224192404_UpdatedBlogTableAddedStringLength.cs" />
+    <Compile Remove="Migrations\20221224192404_UpdatedBlogTableAddedStringLength.Designer.cs" />
+    <Compile Remove="Migrations\20221224192501_UpdatedBlogTableRemovedStringLength.cs" />
+    <Compile Remove="Migrations\20221224192501_UpdatedBlogTableRemovedStringLength.Designer.cs" />
+    <Compile Remove="Migrations\20221224192623_UpdatedBlogTableRemovedStringLengthh.cs" />
+    <Compile Remove="Migrations\20221224192623_UpdatedBlogTableRemovedStringLengthh.Designer.cs" />
+    <Compile Remove="Migrations\20221224203825_updatedblog.cs" />
+    <Compile Remove="Migrations\20221224203825_updatedblog.Designer.cs" />
+    <Compile Remove="Migrations\20221224204947_UpdatedBlogDateTimeNamedd.cs" />
+    <Compile Remove="Migrations\20221224204947_UpdatedBlogDateTimeNamedd.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.31" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.31" />

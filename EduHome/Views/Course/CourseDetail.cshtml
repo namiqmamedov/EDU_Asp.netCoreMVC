@@ -47,7 +47,7 @@
                         <div class="course-details-right">
                             <h3>COURSE FEATURES</h3>
                             <ul>
-                                <li>starts <span>@Model.Course.CourseStarts.ToString("d, MMMe yyyy")</span></li>
+                                <li>starts <span>@*@Model.Course.CourseStarts.ToString("d, MMMe yyyy")*@</span></li>
                                 <li>duration <span>@Model.Course.CourseDuration</span></li>
                                 <li>class duration <span>@Model.Course.CourseClassDuration</span></li>
                                 <li>skill level <span>@Model.Course.CourseSkillLevel</span></li>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="single-post-content">
                     <h4><a asp-controller="blog" asp-action="blogdetail" asp-route-id="@blog.Id">@blog.Title</a></h4>
-                    <p>By @blog.Name  /   @blog.Date.ToString("MMMe d, yyyy")</p>
+                    <p>By @blog.Name  /   @blog.BlogDate.ToString("MMMe d, yyyy")</p>
                 </div>
             </div>}
                     </div>

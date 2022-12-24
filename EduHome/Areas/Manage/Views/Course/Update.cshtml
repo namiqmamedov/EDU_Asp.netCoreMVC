@@ -15,6 +15,7 @@
 <div class="mb-3 d-flex justify-content-center">
     <form style="width: 850px;" method="post" enctype="multipart/form-data">
         <div class="form-group">
+            
             <label asp-for="Title" class="form-label"></label>
             <input asp-for="Title" class="form-control">
             <span asp-validation-for="Title" class="text text-danger"></span>
@@ -97,7 +98,7 @@
         </div>
         <div id="parentList" class="form-group">
             <label>Category</label>
-            <select asp-for="CategoryId" class="form-select form-select-lg mb-3" asp-items="selectListCategoriesItems">
+            <select asp-for="CategoryId" class="form-control" asp-items="selectListCategoriesItems">
             </select>
         </div>
         <div id="parentList" class="form-group">

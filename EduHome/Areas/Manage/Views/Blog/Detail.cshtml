@@ -10,7 +10,7 @@
                     </div>
                     <div class="blog-details-content">
                         <h2>@Model.Title</h2>
-                        <p>By @Model.Name  /  @Model.Date.ToString("MMMe d, yyyy") /  <i class="fa fa-comments-o"></i> 1</p>
+                        <p>By @Model.Name  /  @Model.BlogDate.ToString("d, MMMe yyyy") /  <i class="fa fa-comments-o"></i> 1</p>
                         @foreach (BlogDescription description in Model.BlogDescriptions)
                         {
             <p>@description.SimpleDescription</p>

@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EduHome.ViewModels;
 
 namespace EduHome.Areas.Manage.Controllers
 {
@@ -26,23 +25,23 @@ namespace EduHome.Areas.Manage.Controllers
 
         }
 
-        public async Task<IActionResult> Index(int pageIndex)
+        public async Task<IActionResult> Index()
         {
-            IQueryable<Blog> blogs = _context.Blogs
+            IEnumerable<Blog> blogs = await _context.Blogs
                 .Include(b => b.Category)
                 .Include(bd => bd.BlogDescriptions)
                 .Include(bt => bt.BlogTags).ThenInclude(bt => bt.Tag)
                 .Where(b => b.IsDeleted == false)
-                .OrderByDescending(b => b.Id);
+                .ToListAsync();
 
-           
-            return View(PageNationList<Blog>.Create(blogs,pageIndex,4));
+            return View(blogs);
         }
 
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            ViewBag.BlogTags = await _context.BlogTags.Where(b => b.IsDeleted == false).ToListAsync();
+            ViewBag.Categories = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
+            ViewBag.Tags = await _context.Tags.Where(b => b.IsDeleted == false).ToListAsync();
             ViewBag.BlogDescriptions = await _context.BlogDescriptions.Where(bd => bd.IsDeleted == false).ToListAsync();
 
             return View();
@@ -53,7 +52,8 @@ namespace EduHome.Areas.Manage.Controllers
 
         public async Task<IActionResult> Create(Blog blogs)
         {
-            ViewBag.BlogTags = await _context.BlogTags.Where(b => b.IsDeleted == false).ToListAsync();
+            ViewBag.Categories = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
+            ViewBag.Tags = await _context.Tags.Where(b => b.IsDeleted == false).ToListAsync();
             ViewBag.BlogDescriptions = await _context.BlogDescriptions.Where(bd => bd.IsDeleted == false).ToListAsync();
 
             if (!ModelState.IsValid)
@@ -86,16 +86,7 @@ namespace EduHome.Areas.Manage.Controllers
 
             blogs.Image = blogs.File.CreateImage(_env, "assets", "img", "blog");
 
-            blogs.IsDeleted = false;
-            blogs.Date = blogs.Date;
-            blogs.CreatedAt = DateTime.Now;
-            blogs.CreatedBy = "System";
-
-            await _context.Blogs.AddAsync(blogs);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction("Index");
-
+     
             List<BlogTag> blogTags = new List<BlogTag>();
 
 
@@ -124,11 +115,7 @@ namespace EduHome.Areas.Manage.Controllers
                 blogTags.Add(blogTag);
             }
 
-
-            blogs.IsDeleted = false;
-            blogs.CreatedAt = DateTime.Now;
-            blogs.CreatedBy = "System";
-            
+            blogs.BlogTags = blogTags;
 
             await _context.Blogs.AddAsync(blogs);
             await _context.SaveChangesAsync();
@@ -187,7 +174,7 @@ namespace EduHome.Areas.Manage.Controllers
             Blog existedBlog = await _context.Blogs.FirstOrDefaultAsync(b => b.IsDeleted == false && b.Id == id);
 
 
-            List<EventTag> blogTags = new List<EventTag>();
+            List<BlogTag> blogTags = new List<BlogTag>();
 
             foreach (int tagId in blog.TagIds)
             {
@@ -203,7 +190,7 @@ namespace EduHome.Areas.Manage.Controllers
                     return View(blog);
                 }
 
-                EventTag eventTag = new EventTag
+                BlogTag blogTag = new BlogTag
                 {
                     CreatedAt = DateTime.UtcNow,
                     CreatedBy = "System",
@@ -211,7 +198,7 @@ namespace EduHome.Areas.Manage.Controllers
                     TagId = tagId
                 };
 
-                blogTags.Add(eventTag);
+                blogTags.Add(blogTag);
             }
 
             if (blog.File != null)
@@ -220,8 +207,10 @@ namespace EduHome.Areas.Manage.Controllers
                 existedBlog.Image = blog.File.CreateImage(_env, "assets", "img", "blog");
             }
 
+            existedBlog.BlogTags = blogTags;
             existedBlog.Title = blog.Title;
-            existedBlog.Date = blog.Date;
+            existedBlog.File = blog.File;
+            existedBlog.BlogDate = blog.BlogDate;
             existedBlog.Name = blog.Name;
        
 

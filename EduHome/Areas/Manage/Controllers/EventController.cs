@@ -1,6 +1,5 @@
 ﻿using EduHome.DAL;
 using EduHome.Extension;
-using EduHome.Helpers;
 using EduHome.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -41,8 +40,6 @@ namespace EduHome.Areas.Manage.Controllers
         {
             ViewBag.Categories = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
             ViewBag.Tags = await _context.Tags.Where(t => t.IsDeleted == false).ToListAsync();
-            ViewBag.EventSpeakers = await _context.EventSpeakers.Where(s => s.IsDeleted == false).ToListAsync();
-
 
             return View();
         }
@@ -54,18 +51,18 @@ namespace EduHome.Areas.Manage.Controllers
         {
             ViewBag.Categories = await _context.Categories.Where(c => c.IsDeleted == false).ToListAsync();
             ViewBag.Tags = await _context.Tags.Where(t => t.IsDeleted == false).ToListAsync();
-            ViewBag.EventSpeakers = await _context.EventSpeakers.Where(s => s.IsDeleted == false).ToListAsync();
 
             if (!ModelState.IsValid)
             {
                 return View(events);
             }
 
-            if (!await _context.Events.AnyAsync(e => e.IsDeleted == false && e.Id == events.CategoryId))
+            if (!await _context.Categories.AnyAsync(c => c.IsDeleted == false && c.Id == events.CategoryId))
             {
                 ModelState.AddModelError("CategoryId", "Selected category is not correct.");
                 return View(events);
             }
+
 
             if (events.File == null)
             {
@@ -78,9 +75,9 @@ namespace EduHome.Areas.Manage.Controllers
                 ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
                 return View(events);
             }
-            if (events.File.Length > 255096)
+            if (events.File.Length > 124096)
             {
-                ModelState.AddModelError("File", "Maximum size is 255096 kb");
+                ModelState.AddModelError("File", "Maximum size is 124096 kb");
                 return View(events);
             }
 
@@ -105,7 +102,7 @@ namespace EduHome.Areas.Manage.Controllers
                 EventTag eventTag = new EventTag
                 {
                     CreatedAt = DateTime.UtcNow,
-                    CreatedBy = "System", 
+                    CreatedBy = "System",
                     IsDeleted = false,
                     TagId = tagId
                 };
@@ -113,10 +110,8 @@ namespace EduHome.Areas.Manage.Controllers
                 eventTags.Add(eventTag);
             }
 
+            events.EventTags = eventTags;
 
-            events.IsDeleted = false;
-            events.CreatedAt = DateTime.Now;
-            events.CreatedBy = "System";
 
             await _context.Events.AddAsync(events);
             await _context.SaveChangesAsync();
@@ -150,7 +145,6 @@ namespace EduHome.Areas.Manage.Controllers
             return View(events);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int? id, Event events)
@@ -174,34 +168,8 @@ namespace EduHome.Areas.Manage.Controllers
                 return BadRequest("ID cannot be empty!");
             }
 
-            Event existedEvent = await _context.Events.FirstOrDefaultAsync(e => e.IsDeleted == false && e.Id == id);
+            Event existedEvent = await _context.Events.Include(e=>e.EventTags).FirstOrDefaultAsync(e => e.IsDeleted == false && e.Id == id);
 
-            if (events == null)
-            {
-                return NotFound("The entered ID is wrong");
-            }
-
-
-            if (existedEvent.File != null)
-            {
-                if (events.File.ContentType != "image/jpeg")
-                {
-                    ModelState.AddModelError("File", "File extension must be JPG or JPEG !");
-                    return View(events);
-                }
-                if (events.File.Length > 45096)
-                {
-                    ModelState.AddModelError("File", "Maximum size is 45 kb");
-                    return View(events);
-                }
-
-            }
-
-            if (events.File != null)
-            {
-                Helper.DeleteFile(_env, existedEvent.Image, "assets", "img", "event");
-                existedEvent.Image = events.File.CreateImage(_env, "assets", "img", "event");
-            }
 
 
             if (!await _context.Events.AnyAsync(e => e.IsDeleted == false && e.Id == events.CategoryId))
@@ -240,21 +208,21 @@ namespace EduHome.Areas.Manage.Controllers
                 eventTags.Add(eventTag);
             }
 
-
             existedEvent.EventTags = eventTags;
             existedEvent.Title = events.Title;
-            existedEvent.File = events.File;
-            existedEvent.Category = events.Category;
             existedEvent.Date = events.Date;
+            existedEvent.File = events.File;
             existedEvent.EventDate = events.EventDate;
             existedEvent.Venue = events.Venue;
-            existedEvent.UpdatedAt = DateTime.UtcNow;
-            existedEvent.UpdatedBy = "System";
+            existedEvent.CategoryId = events.CategoryId;
+            events.CreatedAt = DateTime.Now;
+            events.CreatedBy = "System";
 
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
         }
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

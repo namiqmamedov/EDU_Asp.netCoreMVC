@@ -1,8 +1,9 @@
-﻿@model PageNationList<Blog>
+﻿@model IEnumerable<Blog>
 
 @{
     ViewData["Title"] = "Index";
-    int counter =  Model.PageIndex == 1 ? 0 : (Model.PageIndex - 1) * 4;
+    int counter = 1;
+
 }
 
 
@@ -32,60 +33,29 @@
             <tbody>
                 @foreach (Blog blog in Model)
                 {
+                    <tr>
+                        <td>@counter</td>
+                        <td>
+                            <img width="100" src="~/assets/img/blog/@blog.Image" alt="Alternate Text" />
+                        </td>
+                        <td>@blog.Title</td>
+                        <td>@blog.BlogDate.ToString("d, MMMe yyyy")</td>
+                        <td>@(blog.BlogTags!= null && blog.BlogTags.Count() > 0 ? String.Join(",", blog.BlogTags.Select(b=>b.Tag.Name)) : "")</td>
+                        <td>@blog.CreatedAt?.ToString("d, MMM yyyy")</td>
+                        <td>
+                            <div style="word-spacing: 16px;" class="buttons">
+                                <a style="width: 26.8%;" class="btn btn-warning" asp-area="manage" asp-action="update" asp-route-id="@blog.Id">Update</a>
+                                <a style="width: 26.8%;" class="btn btn-danger" asp-area="manage" asp-action="delete" asp-route-id="@blog.Id">Delete</a>
+                                <a style="width: 26.8%;" class="btn btn-primary" asp-area="manage" asp-action="detail" asp-route-id="@blog.Id">Detail</a>
+                            </div>
+
+                        </td>
+                    </tr>
+
                     counter++;
-
-                <tr>            
-                    <td>@counter</td>
-                    <td>
-                        <img width="100" src="~/assets/img/blog/@blog.Image" alt="Alternate Text" />
-                    </td>
-                    <td>@blog.Title</td>
-                    <td>@blog.Date.ToString("d, MMMe yyyy")</td>
-                    <td>@(blog.BlogTags!= null && blog.BlogTags.Count() > 0 ? String.Join(",", blog.BlogTags.Select(b=>b.Tag.Name)) : "")</td>
-                    <td>@blog.CreatedAt?.ToString("d, MMM yyyy")</td>
-                    <td>
-                        <div style="word-spacing: 16px;" class="buttons">
-                            <a style="width: 26.8%;" class="btn btn-warning" asp-area="manage" asp-action="update" asp-route-id="@blog.Id">Update</a>
-                            <a style="width: 26.8%;" class="btn btn-danger" asp-area="manage" asp-action="delete" asp-route-id="@blog.Id">Delete</a>
-                            <a style="width: 26.8%;" class="btn btn-primary" asp-area="manage" asp-action="detail" asp-route-id="@blog.Id">Detail</a>
-                        </div>
-
-                    </td>
-                </tr>
-
                 }
             </tbody>
         </table>
     </div>
-    <nav style=" margin-left: auto; margin-right: auto;"  aria-label="Page navigation example">
-        <ul class="pagination">
-            @if (Model.HasPrev)
-            {
-                <li class="page-item">
-
-                    <a class="page-link" asp-area="manage" asp-controller="blog" asp-action="index" asp-route-pageIndex="@(Model.PageIndex-1)" aria-label="Previous">
-
-
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-            }
-            @for (int i = Model.Start; i <= Model.End; i++)
-            {
-                <li class="page-item @(Model.PageIndex == i ? "active" : "")"><a class="page-link" asp-area="manage" asp-controller="blog" asp-action="index" asp-route-pageIndex="@i">@i</a></li>
-
-            }
-            @if (Model.HasNext)
-            {
-                <li class="page-item">
-                    <a class="page-link" asp-area="manage" asp-controller="blog" asp-action="index" asp-route-pageIndex="@(Model.PageIndex+1)" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            }
-        </ul>
-    </nav>
 </div>
 

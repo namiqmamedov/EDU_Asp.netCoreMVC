@@ -29,9 +29,8 @@ namespace EduHome.Areas.Manage.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Teacher> teachers = await _context.Teachers
-                .Include(sk=>sk.TeacherSkills).ThenInclude(sk=>sk.Skill)
-                .Where(t => t.IsDeleted == false).ToListAsync();
+            IEnumerable<Teacher> teachers = await _context.Teachers.
+                Where(t => t.IsDeleted == false).ToListAsync();
 
             return View(teachers);
         }
@@ -39,16 +38,40 @@ namespace EduHome.Areas.Manage.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            ViewBag.Skills = await _context.Skills.Where(s => s.IsDeleted == false).ToListAsync();
+            ViewBag.TeacherSkills = await _context.TeacherSkills
+               .Where(t => t.IsDeleted == false)
+               .ToListAsync();
 
             return View();
+        }
+
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Id not a null");
+            }
+
+            Teacher teacher = await _context.Teachers
+                .Include(sk => sk.TeacherSkills)
+                .ThenInclude(sk => sk.Skill)
+                .FirstOrDefaultAsync(t => t.IsDeleted == false && t.Id == id);
+
+            if (teacher == null)
+            {
+                return NotFound("Id not correct");
+            }
+
+            return View(teacher);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Teacher teacher)
         {
-            ViewBag.Skill = await _context.Skills.Where(s => s.IsDeleted == false).ToListAsync();
+            ViewBag.TeacherSkills = await _context.TeacherSkills
+              .Where(t => t.IsDeleted == false)
+              .ToListAsync();
 
             if (!ModelState.IsValid)
             {
@@ -76,26 +99,8 @@ namespace EduHome.Areas.Manage.Controllers
             teacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
 
 
-            List<TeacherSkill> teacherSkills = new List<TeacherSkill>();
 
-            foreach (int skillId in teacher.SkillIds)
-            {
-                if (! await _context.Skills.AnyAsync(t=>t.IsDeleted == false && t.Id == skillId))
-                {
-                    ModelState.AddModelError("SkillIds","Error");
-                }
-
-                TeacherSkill teacherSkill = new TeacherSkill
-                {
-                    CreatedAt = DateTime.UtcNow,
-                    CreatedBy = "System",
-                    IsDeleted = false,
-                    SkillId = skillId
-                };
-                teacherSkills.Add(teacherSkill);
-            }
-
-            teacher.TeacherSkills = teacherSkills;
+            //teacher.Image = null;
             teacher.IsDeleted = false;
             teacher.CreatedAt = DateTime.UtcNow;
             teacher.CreatedBy = "System";
@@ -175,7 +180,9 @@ namespace EduHome.Areas.Manage.Controllers
                     ModelState.AddModelError("File", "Maximum size is 45 kb");
                     return View(teacher);
                 }
-             
+
+                
+
             }
 
             if (teacher.File != null)
@@ -183,6 +190,9 @@ namespace EduHome.Areas.Manage.Controllers
                 Helper.DeleteFile(_env, existedTeacher.Image, "assets", "img", "teacher");
                 existedTeacher.Image = teacher.File.CreateImage(_env, "assets", "img", "teacher");
             }
+           
+               
+            
            
 
             existedTeacher.Fullname = teacher.Fullname.Trim();
@@ -207,25 +217,6 @@ namespace EduHome.Areas.Manage.Controllers
 
         }
 
-        public async Task<IActionResult> Detail(int? id)
-        {
-            if (id == null)
-            {
-                return BadRequest("Id not a null");
-            }
-
-            Teacher teacher = await _context.Teachers
-                .Include(sk => sk.TeacherSkills)
-                .ThenInclude(sk => sk.Skill)
-                .FirstOrDefaultAsync(t => t.IsDeleted == false && t.Id == id);
-
-            if (teacher == null)
-            {
-                return NotFound("Id not correct");
-            }
-
-            return View(teacher);
-        }
 
         public async Task<IActionResult> Delete(int? id)
         {

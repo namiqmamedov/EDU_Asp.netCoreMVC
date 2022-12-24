@@ -1,8 +1,10 @@
 ﻿@model Blog
 
 @{
-    ViewData["Title"] = "Create";
-    
+   ViewData["Title"] = "Create";
+   IEnumerable<Tag> tags = ViewBag.Tags;
+
+   SelectList selectListTagsItems = new SelectList(tags, nameof(Tag.Id), nameof(Tag.Name));
 }
 
 
@@ -15,9 +17,9 @@
             <span asp-validation-for="Title" class="text text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Date" class="form-label"></label>
-            <input asp-for="Date" class="form-control">
-            <span asp-validation-for="Date" class="text text-danger"></span>
+            <label asp-for="BlogDate" class="form-label"></label>
+            <input asp-for="BlogDate" class="form-control">
+            <span asp-validation-for="BlogDate" class="text text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="File"></label>
@@ -39,7 +41,12 @@
             <input asp-for="BlogDescriptions.First().QuoteDescription" class="form-control">
             <span asp-validation-for="BlogDescriptions.First().QuoteDescription" class="text text-danger"></span>
         </div>
-        
+        <div id="parentList" class="form-group">
+            <label>Tag</label>
+            <select asp-for="TagIds" class="form-control" asp-items="selectListTagsItems">
+            </select>
+            <span asp-validation-for="TagIds" class="text text-danger"></span>
+        </div>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
